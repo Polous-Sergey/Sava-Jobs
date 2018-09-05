@@ -1,0 +1,13 @@
+<mat-card class="example-card">
+  <img mat-card-image src="https://uipservice.com/wp-content/uploads/tilda/432048/pages/2134481/tild6565-6666-4438-b834-336437363837__iphone8plus_product_.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <mat-card-title>{{cardData.headline}}</mat-card-title>
+    <mat-card-subtitle>{{cardData.totalRating}}/10</mat-card-subtitle>
+    <mat-card-subtitle>{{cardData.price}} грн.</mat-card-subtitle>
+    <p>{{cardData.shortDescription}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="detail()">Подробнее</button>
+    <button mat-button (click)="bye()">Купить</button>
+  </mat-card-actions>
+</mat-card>

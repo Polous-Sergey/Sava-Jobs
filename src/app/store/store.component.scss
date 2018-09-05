@@ -1,0 +1,50 @@
+//.centered {
+//  margin: 0 auto;
+//  padding: 0 1em;
+//}
+
+$small: 600px;
+$large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: $small) {
+      @content;
+    }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: $small + 1) and (max-width: $large - 1) {
+      @content;
+    }
+  } @else if $media == wide-screens {
+    @media only screen and (min-width: $large) {
+      @content;
+    }
+  }
+}
+
+.card {
+  max-width: 400px;
+  @include respond-to(handhelds) {
+    width: 100%
+  }
+  @include respond-to(medium-screens) {
+    width: 50%
+  }
+  @include respond-to(wide-screens) {
+    width: 25%
+  }
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  @include respond-to(handhelds) {
+    max-width: 400px
+  }
+  @include respond-to(medium-screens) {
+    max-width: 800px
+  }
+  @include respond-to(wide-screens) {
+    max-width: 1600px
+  }
+}
