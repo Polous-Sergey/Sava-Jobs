@@ -1,0 +1,31 @@
+.mat-toolbar {
+  background-color: transparent;
+}
+.header-main {
+  position: absolute;
+  h3 {
+    font-weight: lighter;
+  }
+
+  hr {
+    height: 20px;
+    width: 0;
+  }
+
+  .icons {
+    padding-left: 25px;
+    border-left: 1px solid;
+    i {
+      margin-right: 15px;
+    }
+  }
+  .logo {
+    margin-right: 25px;
+  }
+
+  a{
+    font-weight: lighter;
+    margin-left: 20px;
+  }
+}
+
