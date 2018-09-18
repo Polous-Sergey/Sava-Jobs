@@ -1,0 +1,14 @@
+{
+  "/telegram": {
+    "target": "http://localhost:2233",
+    "secure": false
+  },
+  "/matchbook": {
+    "target": "http://localhost:2233",
+    "secure": false
+  },
+  "/setting": {
+    "target": "http://localhost:2233",
+    "secure": false
+  }
+}
