@@ -20,7 +20,7 @@ export class StoreComponent implements OnInit {
     }
 
     getAll() {
-        this.storeService.getAll().then((res: any) => {
+        this.storeService.getAll().subscribe((res: any) => {
             console.log(res);
             if (res.succes) {
                 this.data = res.data;

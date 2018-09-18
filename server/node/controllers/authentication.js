@@ -9,8 +9,6 @@ const sendJSONresponse = function (res, status, content) {
 
 module.exports.register = function (req, res) {
 
-    console.log('yes');
-
     if(!req.body.name || !req.body.email || !req.body.password) {
       sendJSONresponse(res, 400, {
         "message": "All fields required"

@@ -8,6 +8,7 @@ const auth = jwt({
 
 const ctrlProfile = require('../controllers/profile');
 const ctrlAuth = require('../controllers/authentication');
+const ctrlProducts = require('../controllers/products');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -15,5 +16,8 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 // authentication
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
+
+// custom
+router.get('/products', ctrlProducts.products);
 
 module.exports = router;
