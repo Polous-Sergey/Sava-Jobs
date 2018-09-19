@@ -15,6 +15,9 @@ import {CardDetailComponent} from './shared/modal/card-detail/card-detail.compon
 import {StoreService} from './services/store.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {LayoutModule} from '@angular/cdk/layout';
+import {ServiceHeaderComponent} from './service/service-header/service-header.component';
+import {MediaMenuComponent} from './shared/modal/media-menu/media-menu.component';
 
 @NgModule({
     declarations: [
@@ -25,10 +28,13 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         CardComponent,
         StoreHeaderComponent,
         ServiceComponent,
-        CardDetailComponent
+        CardDetailComponent,
+        ServiceHeaderComponent,
+        MediaMenuComponent
     ],
     entryComponents: [
-        CardDetailComponent
+        CardDetailComponent,
+        MediaMenuComponent
     ],
     imports: [
         BrowserModule,
@@ -36,7 +42,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
         BrowserAnimationsModule,
         MaterialModule,
         HttpClientModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        LayoutModule
     ],
     providers: [
         StoreService

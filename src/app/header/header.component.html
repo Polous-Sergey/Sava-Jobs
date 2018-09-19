@@ -4,7 +4,7 @@
             <div class="logo">
                 <h3>Sava Jobs</h3>
             </div>
-            <div class="icons">
+            <div class="icons" *ngIf="media">
                 <i class="material-icons">
                     subscriptions
                 </i>
@@ -16,10 +16,15 @@
                 </i>
             </div>
         </div>
-        <div>
-            <a href="service">Ремонт</a>
-            <a href="store">Магазин</a>
-            <a href="store">О нас</a>
+        <div *ngIf="media">
+            <a routerLink="/service">Ремонт</a>
+            <a routerLink="/store">Магазин</a>
+            <a routerLink="/store">О нас</a>
+        </div>
+        <div *ngIf="!media">
+            <button mat-icon-button (click)="mediaMenu()">
+                <mat-icon>menu</mat-icon>
+            </button>
         </div>
     </div>
 </mat-toolbar>

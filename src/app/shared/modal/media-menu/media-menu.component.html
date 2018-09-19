@@ -1,0 +1,34 @@
+<div class="media-menu"  fxLayout="column" fxLayoutAlign="space-between none">
+    <div class="logo" fxLayout="column">
+        <h3>Sava Jobs</h3>
+        <div class="icons">
+            <i class="material-icons">
+                subscriptions
+            </i>
+            <i class="material-icons">
+                subscriptions
+            </i>
+            <i class="material-icons">
+                subscriptions
+            </i>
+        </div>
+    </div>
+
+    <mat-list>
+        <mat-list-item (click)="onClick()" routerLink="/service">
+            <h4 matLine>Ремонт</h4>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-list-item (click)="onClick()" routerLink="/store">
+            <h4 matLine>Магазин</h4>
+            <mat-divider></mat-divider>
+        </mat-list-item>
+        <mat-list-item (click)="onClick()" routerLink="/store">
+            <h4 matLine>О нас</h4>
+        </mat-list-item>
+    </mat-list>
+
+    <div>
+    </div>
+</div>
+
