@@ -47,7 +47,7 @@ import {GalleryModule} from '@ngx-gallery/core';
         FlexLayoutModule,
         LayoutModule,
         AgmCoreModule.forRoot({
-            apiKey: ['AIzaSyDfiKM5cIk8zisr3nUa0dro7qH4A3WrgQ4']
+            apiKey: 'AIzaSyDfiKM5cIk8zisr3nUa0dro7qH4A3WrgQ4'
         }),
         GalleryModule.forRoot()
     ],
