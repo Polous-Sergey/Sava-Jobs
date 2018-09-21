@@ -3,7 +3,7 @@
         <div fxFlex="70%" fxLayoutAlign="center center">
             <div class="map-container">
                 <agm-map class="map" [latitude]="latitude" [zoom]="17" [longitude]="longitude" [styles]="styles">
-                    <agm-marker [latitude]="latitude" [longitude]="longitude">
+                    <agm-marker [latitude]="latitude" [longitude]="longitude" [label]="labelOptions">
                     </agm-marker>
                 </agm-map>
             </div>
@@ -51,3 +51,5 @@
         </div>
     </div>
 </div>
+
+<!--@DhananjayLasankute123 You can add a custom marker icon by <agm-marker *ngFor="let m of markers" [latitude]="m.lat" [longitude]="m.lng" [iconUrl]="m.icon" [markerDraggable]="m.draggable" [title]="m.title"> and in my component i am setting the url to this.markers.icon = "../assets/img/test.png"-->

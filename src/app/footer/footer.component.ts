@@ -9,7 +9,6 @@ export class FooterComponent implements OnInit {
     latitude = 50.302227;
     longitude = 34.894137;
 
-
     styles = [
         {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
         {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -91,8 +90,14 @@ export class FooterComponent implements OnInit {
         }
     ];
 
+    labelOptions = {
+        color: '#ffffff',
+        fontSize: '14px',
+        fontWeight: 'bold',
+        text: 'Sava Jobs',
+    };
 
-// <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'./assets/app/media/img/icons/marker.png'">
+    mapIcon = '../../assets/icons/baseline-place.svg';
 
 
     constructor() {

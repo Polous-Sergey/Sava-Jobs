@@ -6,7 +6,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
     styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-    @Output() clickDetail = new EventEmitter<void>();
+    @Output() clickDetail = new EventEmitter<any>();
     @Input() cardData: any;
 
     constructor() {
@@ -16,7 +16,7 @@ export class CardComponent implements OnInit {
     }
 
     detail() {
-        this.clickDetail.emit();
+        this.clickDetail.emit(this.cardData);
     }
 
     bye() {
