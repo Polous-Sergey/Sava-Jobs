@@ -16,11 +16,11 @@
                 </i>
             </div>
         </div>
-        <div *ngIf="media">
-            <a routerLink="/service">Ремонт</a>
-            <a routerLink="/store">Магазин</a>
-            <a routerLink="/store">О нас</a>
-        </div>
+        <mat-nav-list *ngIf="media" fxLayout="row" fxLayoutAlign="center center">
+            <a mat-list-item routerLink="/service"> Ремонт </a>
+            <a mat-list-item routerLink="/store"> Магазин </a>
+            <a mat-list-item routerLink="/store"> О нас </a>
+        </mat-nav-list>
         <div *ngIf="!media">
             <button mat-icon-button (click)="mediaMenu()">
                 <mat-icon>menu</mat-icon>

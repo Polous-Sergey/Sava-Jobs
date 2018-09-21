@@ -18,6 +18,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {LayoutModule} from '@angular/cdk/layout';
 import {ServiceHeaderComponent} from './service/service-header/service-header.component';
 import {MediaMenuComponent} from './shared/modal/media-menu/media-menu.component';
+import {AgmCoreModule} from '@agm/core';
+import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 
 @NgModule({
     declarations: [
@@ -43,7 +45,11 @@ import {MediaMenuComponent} from './shared/modal/media-menu/media-menu.component
         MaterialModule,
         HttpClientModule,
         FlexLayoutModule,
-        LayoutModule
+        LayoutModule,
+        AgmCoreModule.forRoot({
+            apiKey: ['AIzaSyDfiKM5cIk8zisr3nUa0dro7qH4A3WrgQ4']
+        }),
+        AgmSnazzyInfoWindowModule
     ],
     providers: [
         StoreService

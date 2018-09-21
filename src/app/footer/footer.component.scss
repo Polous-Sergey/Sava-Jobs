@@ -1,4 +1,46 @@
 .footer {
   background-color: #404040;
   color: white;
+
+  mat-list-item {
+    color: white;
+    font-weight: lighter;
+  }
+
+  .contacts {
+    text-align: left;
+    padding: 15px 0;
+    mat-list-item {
+      font-size: 14px;
+    }
+  }
+
+  .map-container {
+    width: 100%;
+    height: 500px;
+  }
+
+  .map {
+    width: 100%;
+    height: 100%;
+  }
+
+  h4 {
+    font-weight: lighter;
+    padding: 0 16px;
+  }
+
+  .unde-footer {
+    background-color: #181A1E;
+  }
+
+  .footer-menu {
+    a {
+      color: white;
+    }
+  }
+
+  .copyring {
+    text-align: center;
+  }
 }
