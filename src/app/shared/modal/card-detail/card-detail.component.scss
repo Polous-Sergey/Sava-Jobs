@@ -1,15 +1,38 @@
 .detailModal {
   height: 100%;
+  position: relative;
   gallery {
     height: 100%;
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
   }
   .gallery {
     height: 100%;
   }
   .content {
-    //height: 100%;
-    //overflow-y: scroll;
+    padding: 20px;
+
+    .actions {
+      text-align: right;
+    }
   }
 }
 
+.dialog-detail {
+  .mat-dialog-container {
+    padding: 0;
+  }
+}
 
+.close-modal {
+  //text-align: right;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  //background-color: white;
+  z-index: 10;
+  mat-icon {
+    text-shadow: 0 0 3px #000;
+  }
+}

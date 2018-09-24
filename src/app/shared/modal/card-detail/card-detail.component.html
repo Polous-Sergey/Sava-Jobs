@@ -1,23 +1,21 @@
-<div fxLayout="row" class="detailModal">
-  <div fxFlex="70%" class="gallery">
-    <gallery [items]="images"></gallery>
-  </div>
-  <div fxFlex="30%" class="content">
-      <mat-card-content>
-        <mat-card-title>{{data.headline}}</mat-card-title>
-        <mat-card-subtitle>{{data.totalRating}}/10</mat-card-subtitle>
-        <mat-card-subtitle>{{data.price}} грн.</mat-card-subtitle>
-        <p>{{data.description}}</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button>Подробнее</button>
-        <button mat-button>Купить</button>
-      </mat-card-actions>
-
-    <!--<h4>{{data.headline}}</h4>-->
-    <!--<h6>{{data.price}}</h6>-->
-    <!--<p>{{data.description}}</p>-->
-  </div>
+<div fxLayout.gt-sm="row" fxLayout="column" class="detailModal">
+    <div class="close-modal">
+        <button mat-icon-button (click)="close()">
+            <mat-icon aria-label="Звкрыть">close</mat-icon>
+        </button>
+    </div>
+    <div fxFlex.gt-sm="60%" class="gallery">
+        <gallery [items]="images" [counter]="false" [gestures]="false" gallerize></gallery>
+    </div>
+    <div fxFlex.gt-sm="40%" class="content" fxLayout="column" fxLayoutAlign="space-between none" >
+        <div>
+            <mat-card-title>{{data.headline}}</mat-card-title>
+            <mat-card-subtitle>{{data.totalRating}}/10</mat-card-subtitle>
+            <mat-card-subtitle>{{data.price}} грн.</mat-card-subtitle>
+            <p>{{data.description}}</p>
+        </div>
+        <div class="actions">
+            <button mat-button>Купить</button>
+        </div>
+    </div>
 </div>
-
-

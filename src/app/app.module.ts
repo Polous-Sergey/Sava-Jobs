@@ -20,6 +20,9 @@ import {ServiceHeaderComponent} from './service/service-header/service-header.co
 import {MediaMenuComponent} from './shared/modal/media-menu/media-menu.component';
 import {AgmCoreModule} from '@agm/core';
 import {GalleryModule} from '@ngx-gallery/core';
+import {LightboxModule} from '@ngx-gallery/lightbox';
+import {GallerizeModule} from '@ngx-gallery/gallerize';
+import {SubmitOrderComponent} from './shared/modal/submit-order/submit-order.component';
 
 @NgModule({
     declarations: [
@@ -32,11 +35,13 @@ import {GalleryModule} from '@ngx-gallery/core';
         ServiceComponent,
         CardDetailComponent,
         ServiceHeaderComponent,
-        MediaMenuComponent
+        MediaMenuComponent,
+        SubmitOrderComponent
     ],
     entryComponents: [
         CardDetailComponent,
-        MediaMenuComponent
+        MediaMenuComponent,
+        SubmitOrderComponent
     ],
     imports: [
         BrowserModule,
@@ -49,7 +54,11 @@ import {GalleryModule} from '@ngx-gallery/core';
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyDfiKM5cIk8zisr3nUa0dro7qH4A3WrgQ4'
         }),
-        GalleryModule.forRoot()
+        GalleryModule.forRoot(),
+        LightboxModule.forRoot({
+            panelClass: 'fullscreen'
+        }),
+        GallerizeModule
     ],
     providers: [
         StoreService
