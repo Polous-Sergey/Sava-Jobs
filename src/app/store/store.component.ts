@@ -42,7 +42,7 @@ export class StoreComponent implements OnInit {
         const confiq: any = {
             maxWidth: '100%',
             width: this.media ? '90%' : '98%',
-            height: '80%',
+            height: this.media ? '80%' : '98%',
             data: {...data},
             panelClass: 'dialog-detail'
         };

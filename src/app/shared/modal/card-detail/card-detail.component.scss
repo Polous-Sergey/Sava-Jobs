@@ -8,12 +8,19 @@
   }
   .gallery {
     height: 100%;
+    -webkit-transition: height 1s;
+    transition: height 1s;
   }
   .content {
     padding: 20px;
 
     .actions {
       text-align: right;
+    }
+  }
+  @media (max-width: 959px) {
+    .gallery {
+      height: 70%;
     }
   }
 }
@@ -25,14 +32,20 @@
 }
 
 .close-modal {
-  //text-align: right;
-  position: absolute;
-  top: 5px;
-  right: 5px;
+  position: fixed;
+  top: 3px;
+  right: 3px;
   color: white;
-  //background-color: white;
   z-index: 10;
-  mat-icon {
-    text-shadow: 0 0 3px #000;
+  .mat-icon {
+    filter: drop-shadow(0px 0px 1px black);
+    color: white;
+    opacity: 0.6;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+
+  }
+  .mat-icon:hover{
+    opacity: 1;
   }
 }

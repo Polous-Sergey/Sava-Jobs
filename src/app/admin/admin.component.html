@@ -1,0 +1,29 @@
+<app-admin-header></app-admin-header>
+
+<!--<mat-drawer-container class="example-container" [hasBackdrop]="!media.xs">-->
+    <!--<mat-drawer #drawer [mode]="media.xs ?'side' : 'over'">I'm a drawer</mat-drawer>-->
+    <!--<mat-drawer-content>-->
+        <!--<p>Sooom tex must be hea</p>-->
+        <!--<button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>-->
+    <!--</mat-drawer-content>-->
+<!--</mat-drawer-container>-->
+
+<div fxLayoutAlign="center none">
+    <nav mat-tab-nav-bar>
+        <a mat-tab-link
+           [routerLink]="'service'"
+           routerLinkActive #service="routerLinkActive"
+           [active]="service.isActive">
+            Сервис
+        </a>
+        <a mat-tab-link
+           [routerLink]="'store'"
+           routerLinkActive #store="routerLinkActive"
+           [active]="store.isActive">
+            Магазин
+        </a>
+    </nav>
+</div>
+
+
+<router-outlet></router-outlet>
