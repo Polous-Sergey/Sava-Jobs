@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Product} from '../../shared/model/product';
 
 @Component({
     selector: 'app-card',
@@ -7,7 +8,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 })
 export class CardComponent implements OnInit {
     @Output() clickDetail = new EventEmitter<any>();
-    @Input() cardData: any;
+    @Input() cardData: Product;
 
     constructor() {
     }

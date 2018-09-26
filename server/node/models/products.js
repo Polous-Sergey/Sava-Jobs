@@ -1,34 +1,32 @@
-const mongoose = require( 'mongoose' );
+const mongoose = require('mongoose');
+
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 const productSchema = new mongoose.Schema({
-    headline: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: Number,
-        required: true
-    },
-    shortDescription: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
+    title: {type: String, required: true},
+    price: {type: Number, required: true},
+    shortDescription: {type: String, required: true},
+    description: {type: String, required: true},
     conditions: {
-        type: String,
-        required: true
+        type: [{
+            name: String,
+            condition: Number
+        }],
+        default: []
     },
-    totalRating: {
-        type: String,
-        required: true
+    pictures: {
+      type: [String],
+      default: []
     },
-    equipment: {
-        type: String,
-        required: true
-    }
+    category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
+    totalRating: {type: Number, required: true},
+    equipment: {type: [String], default: []},
+    created: {type: Date, default: Date.now},
+    createdBy: {type: String, default: 'admin'},
+    hidden: {type: Boolean, default: false},
+    isSold: {type: Boolean, default: false}
 });
 
-mongoose.model('Product', productSchema);
+productSchema.plugin(deepPopulate);
+
+module.exports = mongoose.model('Product', productSchema);

@@ -5,6 +5,7 @@ import {ServiceComponent} from './service/service.component';
 import {AdminComponent} from './admin/admin.component';
 import {AdminStoreComponent} from './admin/admin-store/admin-store.component';
 import {AdminServiceComponent} from './admin/admin-service/admin-service.component';
+import {OrdersComponent} from './admin/orders/orders.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/store', pathMatch: 'full'},
@@ -16,6 +17,7 @@ const routes: Routes = [
             {path: '', redirectTo: '/admin/store', pathMatch: 'full'},
             {path: 'store', component: AdminStoreComponent},
             {path: 'service', component: AdminServiceComponent},
+            {path: 'orders', component: OrdersComponent},
             {path: '**', redirectTo: '/admin/store'}
         ]
     },

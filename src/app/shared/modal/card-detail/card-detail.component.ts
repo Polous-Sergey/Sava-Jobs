@@ -2,6 +2,7 @@ import {Component, Inject, OnInit, ViewEncapsulation} from '@angular/core';
 import {GalleryItem, ImageItem} from '@ngx-gallery/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {BreakpointObserver, BreakpointState} from '@angular/cdk/layout';
+import {Product} from '../../model/product';
 
 @Component({
     selector: 'app-card-detail',
@@ -28,16 +29,12 @@ export class CardDetailComponent implements OnInit {
         new ImageItem({
             src: '../../../../assets/develop/1.jpg',
             thumb: '../../../../assets/develop/1.jpg'
-        }),
-        new ImageItem({
-            src: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC',
-            thumb: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAA1BMVEX///+nxBvIAAAASElEQVR4nO3BgQAAAADDoPlTX+AIVQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwDcaiAAFXD1ujAAAAAElFTkSuQmCC'
         })
     ];
 
     constructor(private dialogRef: MatDialogRef<CardDetailComponent>,
                 private breakpointObserver: BreakpointObserver,
-                @Inject(MAT_DIALOG_DATA) private data: any) {
+                @Inject(MAT_DIALOG_DATA) private data: Product) {
     }
 
     ngOnInit() {

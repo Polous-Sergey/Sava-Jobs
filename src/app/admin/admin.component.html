@@ -22,6 +22,12 @@
            [active]="store.isActive">
             Магазин
         </a>
+        <a mat-tab-link
+           [routerLink]="'orders'"
+           routerLinkActive #orders="routerLinkActive"
+           [active]="orders.isActive">
+            Заказы
+        </a>
     </nav>
 </div>
 

@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('express-jwt');
 const auth = jwt({
-  secret: 'MY_SECRET',
-  userProperty: 'payload'
+    secret: 'MY_SECRET',
+    userProperty: 'payload'
 });
 
 const ctrlProfile = require('../controllers/profile');
 const ctrlAuth = require('../controllers/authentication');
 const ctrlProducts = require('../controllers/products');
+const ctrlCategory = require('../controllers/category');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -17,7 +18,17 @@ router.get('/profile', auth, ctrlProfile.profileRead);
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
-// custom
-router.get('/products', ctrlProducts.products);
+// product
+router.get('/products', ctrlProducts.productGet);
+router.post('/products', ctrlProducts.productPost);
+router.put('/products', ctrlProducts.productPut);
+router.delete('/products', ctrlProducts.productDelete);
+
+// category
+router.get('/category', ctrlCategory.categoryGet);
+router.post('/category', ctrlCategory.categoryPost);
+router.put('/category', ctrlCategory.categoryPut);
+router.delete('/category', ctrlCategory.categoryDelete);
+
 
 module.exports = router;

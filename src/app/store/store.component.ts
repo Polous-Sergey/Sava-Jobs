@@ -4,6 +4,7 @@ import {BreakpointObserver, BreakpointState} from '@angular/cdk/layout';
 import {CardDetailComponent} from '../shared/modal/card-detail/card-detail.component';
 import {StoreService} from '../services/store.service';
 import {SubmitOrderComponent} from '../shared/modal/submit-order/submit-order.component';
+import {Product} from '../shared/model/product';
 
 @Component({
     selector: 'app-store',
@@ -11,7 +12,7 @@ import {SubmitOrderComponent} from '../shared/modal/submit-order/submit-order.co
     styleUrls: ['./store.component.scss']
 })
 export class StoreComponent implements OnInit {
-    data = [];
+    data: Product[] = [];
     media;
 
     constructor(private dialog: MatDialog,
@@ -31,14 +32,14 @@ export class StoreComponent implements OnInit {
     getAll() {
         this.storeService.getAll().subscribe((res: any) => {
             console.log(res);
-            if (res.succes) {
+            if (res.success) {
                 this.data = res.data;
-                this.showDetail(res.data[0]);
+                // this.showDetail(res.data[0]);
             }
         });
     }
 
-    showDetail(data) {
+    showDetail(data: Product) {
         const confiq: any = {
             maxWidth: '100%',
             width: this.media ? '90%' : '98%',

@@ -23,10 +23,12 @@ import {GalleryModule} from '@ngx-gallery/core';
 import {LightboxModule} from '@ngx-gallery/lightbox';
 import {GallerizeModule} from '@ngx-gallery/gallerize';
 import {SubmitOrderComponent} from './shared/modal/submit-order/submit-order.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminHeaderComponent } from './admin/admin-header/admin-header.component';
-import { AdminStoreComponent } from './admin/admin-store/admin-store.component';
-import { AdminServiceComponent } from './admin/admin-service/admin-service.component';
+import {AdminComponent} from './admin/admin.component';
+import {AdminHeaderComponent} from './admin/admin-header/admin-header.component';
+import {AdminStoreComponent} from './admin/admin-store/admin-store.component';
+import {AdminServiceComponent} from './admin/admin-service/admin-service.component';
+import {OrdersComponent} from './admin/orders/orders.component';
+import {CardPrevievComponent} from './shared/modal/card-previev/card-previev.component';
 
 @NgModule({
     declarations: [
@@ -44,12 +46,15 @@ import { AdminServiceComponent } from './admin/admin-service/admin-service.compo
         AdminComponent,
         AdminHeaderComponent,
         AdminStoreComponent,
-        AdminServiceComponent
+        AdminServiceComponent,
+        OrdersComponent,
+        CardPrevievComponent
     ],
     entryComponents: [
         CardDetailComponent,
         MediaMenuComponent,
-        SubmitOrderComponent
+        SubmitOrderComponent,
+        CardPrevievComponent
     ],
     imports: [
         BrowserModule,
