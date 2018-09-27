@@ -11,4 +11,8 @@ export class StoreService {
     getAll() {
         return this.http.get('/api/products');
     }
+
+    getImg() {
+        return this.http.get('/api/image');
+    }
 }

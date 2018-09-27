@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('express-jwt');
+const multer = require('multer');
+const upload = multer({dest: 'src/assets/uploads/'});
 const auth = jwt({
     secret: 'MY_SECRET',
     userProperty: 'payload'
@@ -10,6 +12,7 @@ const ctrlProfile = require('../controllers/profile');
 const ctrlAuth = require('../controllers/authentication');
 const ctrlProducts = require('../controllers/products');
 const ctrlCategory = require('../controllers/category');
+const ctrlImage = require('../controllers/image');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -29,6 +32,10 @@ router.get('/category', ctrlCategory.categoryGet);
 router.post('/category', ctrlCategory.categoryPost);
 router.put('/category', ctrlCategory.categoryPut);
 router.delete('/category', ctrlCategory.categoryDelete);
+
+// image
+router.get('/image', ctrlImage.imageGet);
+router.post('/image', upload.single('test'), ctrlImage.imagePost);
 
 
 module.exports = router;

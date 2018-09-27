@@ -21,7 +21,7 @@ const app = express();
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(cors());
 
@@ -32,7 +32,7 @@ app.use(passport.initialize());
 app.use('/api', routesApi);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     let err = new Error('Not Found');
     err.status = 404;
     next(err);
@@ -60,7 +60,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(function (err, req, res, next) {
     if (err.name === 'UnauthorizedError') {
         res.status(401);
-        res.json({"message" : err.name + ": " + err.message});
+        res.json({"message": err.name + ": " + err.message});
     }
 });
 
