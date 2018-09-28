@@ -1,3 +1,6 @@
 <!--<img *ngFor="let image of images" src="http://localhost:2233/api/image">-->
 <img src="/api/image/5baddaf6a2414a1eab71cc28">
+<!--<img *ngFor="let image of images" [src]="image.img">-->
 
+<input type="file" (change)="onFileSelected($event)">
+<button mat-button type="submit"(click)="onUpload()">Upload</button>

@@ -13,24 +13,24 @@ import {Product} from '../../model/product';
 export class CardDetailComponent implements OnInit {
     media;
 
-    images = [
-        new ImageItem({
-            src: '../../../../assets/develop/2.jpg',
-            thumb: '../../../../assets/develop/2.jpg'
-        }),
-        new ImageItem({
-            src: '../../../../assets/develop/3.jpg',
-            thumb: '../../../../assets/develop/3.jpg'
-        }),
-        new ImageItem({
-            src: '../../../../assets/develop/4.jpg',
-            thumb: '../../../../assets/develop/4.jpg'
-        }),
-        new ImageItem({
-            src: '../../../../assets/develop/1.jpg',
-            thumb: '../../../../assets/develop/1.jpg'
-        })
-    ];
+    images = [];
+    // new ImageItem({
+    //     src: '../../../../assets/develop/2.jpg',
+    //     thumb: '../../../../assets/develop/2.jpg'
+    // }),
+    // new ImageItem({
+    //     src: '../../../../assets/develop/3.jpg',
+    //     thumb: '../../../../assets/develop/3.jpg'
+    // }),
+    // new ImageItem({
+    //     src: '../../../../assets/develop/4.jpg',
+    //     thumb: '../../../../assets/develop/4.jpg'
+    // }),
+    // new ImageItem({
+    //     src: '../../../../assets/develop/1.jpg',
+    //     thumb: '../../../../assets/develop/1.jpg'
+    // })
+    // ];
 
     constructor(private dialogRef: MatDialogRef<CardDetailComponent>,
                 private breakpointObserver: BreakpointObserver,
@@ -45,6 +45,12 @@ export class CardDetailComponent implements OnInit {
                 this.media = state.matches;
                 console.log(this.media);
             });
+        this.data.images.forEach((image) => {
+            this.images.push(new ImageItem({
+                src: '/api/image/' + image,
+                thumb: '/api/image/' + image
+            }));
+        });
     }
 
     submitClick() {

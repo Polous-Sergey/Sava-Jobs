@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -29,6 +30,8 @@ import {AdminStoreComponent} from './admin/admin-store/admin-store.component';
 import {AdminServiceComponent} from './admin/admin-service/admin-service.component';
 import {OrdersComponent} from './admin/orders/orders.component';
 import {CardPrevievComponent} from './shared/modal/card-previev/card-previev.component';
+import {AddEditProductComponent} from './shared/modal/add-edit-product/add-edit-product.component';
+import {AdminStoreService} from './services/admin.store.service';
 
 @NgModule({
     declarations: [
@@ -48,16 +51,19 @@ import {CardPrevievComponent} from './shared/modal/card-previev/card-previev.com
         AdminStoreComponent,
         AdminServiceComponent,
         OrdersComponent,
-        CardPrevievComponent
+        CardPrevievComponent,
+        AddEditProductComponent
     ],
     entryComponents: [
         CardDetailComponent,
         MediaMenuComponent,
         SubmitOrderComponent,
-        CardPrevievComponent
+        CardPrevievComponent,
+        AddEditProductComponent
     ],
     imports: [
         BrowserModule,
+        FormsModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MaterialModule,
@@ -74,7 +80,8 @@ import {CardPrevievComponent} from './shared/modal/card-previev/card-previev.com
         GallerizeModule
     ],
     providers: [
-        StoreService
+        StoreService,
+        AdminStoreService
     ],
     bootstrap: [AppComponent]
 })

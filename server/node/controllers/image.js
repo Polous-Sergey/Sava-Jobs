@@ -2,27 +2,18 @@ const Image = require('../models/image');
 const fs = require('fs');
 
 
-function imageGet(req, res) {
-    console.log(req.params.id);
-    Image.findById({_id: req.params.id}, (err, product) => {
-        console.log(err);
-        console.log(product);
-
-
-        // if (err) {
-        //     res.json({
-        //         succes: false,
-        //         message: 'Product is not found',
-        //         err: err
-        //     });
-        // } else {
-        //     res.json({
-        //         succes: true,
-        //         message: 'Success',
-        //         product: product
-        //     });
-        // }
+function imageGetByID(req, res) {
+    Image.findById({_id: req.params.id}, (err, image) => {
+        if (err || !image) {
+            return res.json({
+                succes: false,
+            });
+        }
+        res.send(image.img)
     });
+}
+
+function imageGet2(req, res) {
     Image.find({}, (err, data) => {
         if (err) {
             console.log(err);
@@ -32,29 +23,21 @@ function imageGet(req, res) {
             });
         }
 
-        // if (data && data.length > 0) {
-        //     let result = [];
-        //     data.forEach((item) => {
-        //         result.push(
-        //             'data:image/png;base64, ' + new Buffer(item.img.data, 'binary').toString('base64')
-        //         )
-        //     });
-        //
-        //     return res.json({
-        //         success: true,
-        //         data: result
-        //     });
-        // }
-        // return res.json({
-        //     success: true,
-        //     data: []
-        // });
-
-        res.send(data[0].img);
+        if (data && data.length > 0) {
+            return res.json({
+                success: true,
+                data: data
+            });
+        }
+        return res.json({
+            success: true,
+            data: []
+        });
     });
 }
 
 function imagePost(req, res) {
+    console.log(req.body);
     let newItem = new Image();
     newItem.img = fs.readFileSync(req.file.path);
     newItem.save((err, data) => {
@@ -72,6 +55,7 @@ function imagePost(req, res) {
     });
 }
 
+
 function imagePut(req, res) {
     res.status(200);
     res.json({
@@ -87,7 +71,8 @@ function imageDelete(req, res) {
 }
 
 module.exports = {
-    imageGet,
+    imageGetByID,
+    imageGet2,
     imagePost,
     imagePut,
     imageDelete

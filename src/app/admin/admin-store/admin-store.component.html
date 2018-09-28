@@ -1,8 +1,13 @@
 <div fxLayoutAlign="center none">
     <div fxFlex="98%" class="admin-store">
-        <mat-form-field class="filter">
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field class="filter">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="button" (click)="addProduct()" style="margin-left: 20px">
+                Add Product
+            </button>
+        </div>
 
         <div class="mat-elevation-z8">
 

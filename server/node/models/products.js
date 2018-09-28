@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const deepPopulate = require('mongoose-deep-populate')(mongoose);
+// const deepPopulate = require('mongoose-deep-populate')(mongoose);
 
 const productSchema = new mongoose.Schema({
     title: {type: String, required: true},
@@ -14,8 +14,8 @@ const productSchema = new mongoose.Schema({
         }],
         default: []
     },
-    images: {type: mongoose.Schema.Types.ObjectId, ref: 'Image'},
-    category: {type: mongoose.Schema.Types.ObjectId, ref: 'Category'},
+    images: {type: [mongoose.Schema.Types.ObjectId], ref: 'Image'},
+    category: {type: [mongoose.Schema.Types.ObjectId], ref: 'Category'},
     totalRating: {type: Number, required: true},
     equipment: {type: [String], default: []},
     created: {type: Date, default: Date.now},
@@ -24,6 +24,6 @@ const productSchema = new mongoose.Schema({
     isSold: {type: Boolean, default: false}
 });
 
-productSchema.plugin(deepPopulate);
+// productSchema.plugin(deepPopulate);
 
 module.exports = mongoose.model('Product', productSchema);

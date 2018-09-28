@@ -6,6 +6,7 @@ import {StoreService} from '../../services/store.service';
 import {map, startWith, switchMap} from 'rxjs/internal/operators';
 import {CardPrevievComponent} from '../../shared/modal/card-previev/card-previev.component';
 import {CardDetailComponent} from '../../shared/modal/card-detail/card-detail.component';
+import {AddEditProductComponent} from "../../shared/modal/add-edit-product/add-edit-product.component";
 
 @Component({
     selector: 'app-admin-store',
@@ -106,6 +107,19 @@ export class AdminStoreComponent implements OnInit, AfterViewInit {
             panelClass: 'dialog-detail'
         };
         const dialogRef = this.dialog.open(CardDetailComponent, confiq);
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log(result);
+        });
+    }
+
+    addProduct() {
+        const confiq: any = {
+            maxWidth: '100%',
+            // width: this.media ? '90%' : '98%',
+            // height: this.media ? '80%' : '98%'
+        };
+        const dialogRef = this.dialog.open(AddEditProductComponent, confiq);
 
         dialogRef.afterClosed().subscribe(result => {
             console.log(result);

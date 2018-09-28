@@ -23,7 +23,7 @@ router.post('/login', ctrlAuth.login);
 
 // product
 router.get('/products', ctrlProducts.productGet);
-router.post('/products', ctrlProducts.productPost);
+router.post('/products', upload.array('images', 20), ctrlProducts.productPost);
 router.put('/products', ctrlProducts.productPut);
 router.delete('/products', ctrlProducts.productDelete);
 
@@ -34,7 +34,8 @@ router.put('/category', ctrlCategory.categoryPut);
 router.delete('/category', ctrlCategory.categoryDelete);
 
 // image
-router.get('/image/:id', ctrlImage.imageGet);
+router.get('/image/:id', ctrlImage.imageGetByID);
+router.get('/image', ctrlImage.imageGet2);
 router.post('/image', upload.single('test'), ctrlImage.imagePost);
 
 
