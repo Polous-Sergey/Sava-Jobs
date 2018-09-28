@@ -8,8 +8,8 @@ export class Product {
     shortDescription: string;
     description: string;
     conditions: { name: string; condition: number }[];
-    pictures: string[];
-    category: string;
+    images: string[];
+    category: string[];
     totalRating: number;
     equipment: string[];
     created: Date;

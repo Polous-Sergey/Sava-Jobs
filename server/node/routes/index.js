@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('express-jwt');
 const multer = require('multer');
-const upload = multer({dest: 'src/assets/uploads/'});
+const upload = multer({dest: 'uploads/'});
 const auth = jwt({
     secret: 'MY_SECRET',
     userProperty: 'payload'
@@ -34,7 +34,7 @@ router.put('/category', ctrlCategory.categoryPut);
 router.delete('/category', ctrlCategory.categoryDelete);
 
 // image
-router.get('/image', ctrlImage.imageGet);
+router.get('/image/:id', ctrlImage.imageGet);
 router.post('/image', upload.single('test'), ctrlImage.imagePost);
 
 

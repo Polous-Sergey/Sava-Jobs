@@ -3,6 +3,26 @@ const fs = require('fs');
 
 
 function imageGet(req, res) {
+    console.log(req.params.id);
+    Image.findById({_id: req.params.id}, (err, product) => {
+        console.log(err);
+        console.log(product);
+
+
+        // if (err) {
+        //     res.json({
+        //         succes: false,
+        //         message: 'Product is not found',
+        //         err: err
+        //     });
+        // } else {
+        //     res.json({
+        //         succes: true,
+        //         message: 'Success',
+        //         product: product
+        //     });
+        // }
+    });
     Image.find({}, (err, data) => {
         if (err) {
             console.log(err);
@@ -12,31 +32,31 @@ function imageGet(req, res) {
             });
         }
 
-        if (data && data.length > 0) {
-            let result = [];
-            data.forEach((item) => {
-                result.push(
-                    'data:image/png;base64, ' + new Buffer(item.img.data, 'binary').toString('base64')
-                )
-            });
+        // if (data && data.length > 0) {
+        //     let result = [];
+        //     data.forEach((item) => {
+        //         result.push(
+        //             'data:image/png;base64, ' + new Buffer(item.img.data, 'binary').toString('base64')
+        //         )
+        //     });
+        //
+        //     return res.json({
+        //         success: true,
+        //         data: result
+        //     });
+        // }
+        // return res.json({
+        //     success: true,
+        //     data: []
+        // });
 
-            return res.json({
-                success: true,
-                data: result
-            });
-        }
-        return res.json({
-            success: true,
-            data: []
-        });
+        res.send(data[0].img);
     });
 }
 
 function imagePost(req, res) {
     let newItem = new Image();
-    newItem.img.data = fs.readFileSync(req.file.path);
-    // newItem.path = '../../../' + req.file.path.substring(4);
-    newItem.img.contentType = 'image/png';
+    newItem.img = fs.readFileSync(req.file.path);
     newItem.save((err, data) => {
         if (err) {
             return res.json({
