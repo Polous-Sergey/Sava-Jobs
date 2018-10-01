@@ -2,7 +2,17 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('express-jwt');
 const multer = require('multer');
-const upload = multer({dest: 'uploads/'});
+const storage = multer.diskStorage(
+    {
+        destination: 'uploads/',
+        filename: function ( req, file, cb ) {
+            let arr = file.originalname.split('.');
+            let type = arr[arr.length - 1];
+            cb( null, Date.now() + '.' + type);
+        }
+    }
+);
+const upload = multer({storage: storage});
 const auth = jwt({
     secret: 'MY_SECRET',
     userProperty: 'payload'
