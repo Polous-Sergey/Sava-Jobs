@@ -23,7 +23,13 @@ function productGet(req, res) {
 
 async function productPost(req, res) {
     let body = JSON.parse(req.body.product);
-    let imageId = await writeAllImages(req.files).catch((err) => {
+    let imageId = await writeAllImages(req.files.images ? req.files.images : []).catch((err) => {
+        return res.json({
+            success: false,
+            err: err
+        });
+    });
+    let coverId = await writeAllImages(req.files.cover ? req.files.cover : []).catch((err) => {
         return res.json({
             success: false,
             err: err
@@ -38,6 +44,7 @@ async function productPost(req, res) {
     // product.category = body.categoryId;
     product.totalRating = body.totalRating;
     product.images = imageId;
+    product.cover = coverId[0];
     product.save((err, data) => {
         if (err) {
             return res.json({
@@ -86,16 +93,26 @@ function unlinkCB(err) {
 }
 
 function productPut(req, res) {
-    res.status(200);
-    res.json({
-        "succes": true
+    let body = JSON.parse(req.body.product);
+    console.log(body);
+    Product.findById({_id: body._id}, (err, product) => {
+        if (err || !product) {
+            return res.json({
+                succes: false,
+            });
+        }
+        res.send(product);
     });
 }
 
 function productDelete(req, res) {
-    res.status(200);
-    res.json({
-        "succes": true
+    Product.findById({_id: req.params.id}, (err, product) => {
+        if (err || !product) {
+            return res.json({
+                succes: false,
+            });
+        }
+        res.send(product);
     });
 }
 

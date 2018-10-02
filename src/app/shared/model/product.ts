@@ -9,6 +9,7 @@ export class Product {
     description: string;
     conditions: { name: string; condition: number }[];
     images: string[];
+    cover: string;
     category: string[];
     totalRating: number;
     equipment: string[];

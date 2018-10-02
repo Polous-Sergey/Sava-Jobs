@@ -12,22 +12,16 @@
             <mat-form-field>
                 <input placeholder="Short Description" matInput [(ngModel)]="product.shortDescription">
             </mat-form-field>
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center end">
             <mat-form-field>
                 <input placeholder="Description" matInput [(ngModel)]="product.description">
             </mat-form-field>
-        </div>
-        <div fxLayout="column" fxLayoutAlign="center end">
             <mat-form-field>
                 <input placeholder="Total Rating" matInput [(ngModel)]="product.totalRating">
             </mat-form-field>
             <mat-form-field>
                 <input placeholder="Min odd" matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <input placeholder="Betsize" matInput>
-            </mat-form-field>
-            <mat-form-field>
-                <input placeholder="Calculated odd" matInput>
             </mat-form-field>
         </div>
 
@@ -39,6 +33,15 @@
                multiple
                #fileInput>
         <button mat-mini-fab (click)="fileInput.click()">
+            <mat-icon aria-label="Attach file">attach_file</mat-icon>
+        </button>
+    </div>
+    <div>
+        <input style="display: none"
+               type="file"
+               (change)="onCoverSelected($event)"
+               #coverInput>
+        <button mat-mini-fab (click)="coverInput.click()">
             <mat-icon aria-label="Attach file">attach_file</mat-icon>
         </button>
     </div>

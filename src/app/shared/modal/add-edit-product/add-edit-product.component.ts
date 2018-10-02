@@ -11,6 +11,7 @@ import {HttpEventType} from '@angular/common/http';
 })
 export class AddEditProductComponent implements OnInit {
     images: File[] = [];
+    cover: File;
 
 
     constructor(private dialogRef: MatDialogRef<AddEditProductComponent>,
@@ -28,8 +29,12 @@ export class AddEditProductComponent implements OnInit {
         }
     }
 
+    onCoverSelected(event) {
+        this.cover = event.target.files[0];
+    }
+
     submitClick() {
-        this.adminStoreService.addProduct(this.images, this.product).subscribe((event) => {
+        this.adminStoreService.addProduct(this.images, this.cover, this.product).subscribe((event) => {
             if (event.type === HttpEventType.UploadProgress) {
                 console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
             } else if (event.type === HttpEventType.Response) {

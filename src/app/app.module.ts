@@ -32,6 +32,7 @@ import {OrdersComponent} from './admin/orders/orders.component';
 import {CardPrevievComponent} from './shared/modal/card-previev/card-previev.component';
 import {AddEditProductComponent} from './shared/modal/add-edit-product/add-edit-product.component';
 import {AdminStoreService} from './services/admin.store.service';
+import {EditProductComponent} from './shared/modal/edit-product/edit-product.component';
 
 @NgModule({
     declarations: [
@@ -52,14 +53,16 @@ import {AdminStoreService} from './services/admin.store.service';
         AdminServiceComponent,
         OrdersComponent,
         CardPrevievComponent,
-        AddEditProductComponent
+        AddEditProductComponent,
+        EditProductComponent
     ],
     entryComponents: [
         CardDetailComponent,
         MediaMenuComponent,
         SubmitOrderComponent,
         CardPrevievComponent,
-        AddEditProductComponent
+        AddEditProductComponent,
+        EditProductComponent
     ],
     imports: [
         BrowserModule,
