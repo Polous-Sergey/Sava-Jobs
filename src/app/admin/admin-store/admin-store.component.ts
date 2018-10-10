@@ -129,11 +129,10 @@ export class AdminStoreComponent implements OnInit, AfterViewInit {
 
     editProduct(product: Product) {
         const confiq: any = {
-            maxWidth: '100%',
-            // width: this.media ? '90%' : '98%',
-            // height: this.media ? '80%' : '98%'
+            maxWidth: '98%',
+            maxHeight: '99vh',
+            width: '750px',
             data: {...product},
-            panelClass: 'edit-product-dialog'
         };
         const dialogRef = this.dialog.open(EditProductComponent, confiq);
 

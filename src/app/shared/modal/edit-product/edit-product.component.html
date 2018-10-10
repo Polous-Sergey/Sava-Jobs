@@ -1,67 +1,74 @@
-<div fxLayout="row">
-    <div class="cover">
-        <img src="../../../../assets/develop/1.jpg" width="300">
-    </div>
-    <div class="content">
-        <h1 mat-dialog-title>Edit message</h1>
-        <div mat-dialog-content>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <!--<p>Type name of new section</p>-->
-                <div fxLayout="column" fxLayoutAlign="center end">
-                    <mat-form-field>
-                        <input placeholder="Title" matInput [(ngModel)]="product.title">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input placeholder="Price" matInput [(ngModel)]="product.price">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input placeholder="Short Description" matInput [(ngModel)]="product.shortDescription">
-                    </mat-form-field>
-                </div>
-                <div fxLayout="column" fxLayoutAlign="center end">
-                    <mat-form-field>
-                        <input placeholder="Description" matInput [(ngModel)]="product.description">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input placeholder="Total Rating" matInput [(ngModel)]="product.totalRating">
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input placeholder="Min odd" matInput>
-                    </mat-form-field>
+<div class="main">
+    <div fxLayout="row" fxLayout.xs="column">
+        <div fxFlex="40%">
+            <img src="/api/image/{{product.cover}}" width="100%">
+        </div>
+        <div class="content" fxFlex="60%">
+            <h1 mat-dialog-title>Edit product</h1>
+            <div mat-dialog-content>
+                <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="column" fxFlex="50%" fxLayoutAlign="center end">
+                        <mat-form-field>
+                            <input placeholder="Title" matInput [(ngModel)]="product.title">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input placeholder="Price" matInput [(ngModel)]="product.price">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input placeholder="Short Description" matInput [(ngModel)]="product.shortDescription">
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column" fxFlex="50%" fxLayoutAlign="center end">
+                        <mat-form-field>
+                            <input placeholder="Description" matInput [(ngModel)]="product.description">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input placeholder="Total Rating" matInput [(ngModel)]="product.totalRating">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input placeholder="Min odd" matInput>
+                        </mat-form-field>
+                    </div>
+
                 </div>
 
+                <!--<div>-->
+                <!--<input style="display: none"-->
+                <!--type="file"-->
+                <!--(change)="onFilesSelected($event)"-->
+                <!--multiple-->
+                <!--#fileInput>-->
+                <!--<button mat-mini-fab (click)="fileInput.click()">-->
+                <!--<mat-icon aria-label="Attach file">attach_file</mat-icon>-->
+                <!--</button>-->
+                <!--</div>-->
+                <!--<div>-->
+                <!--<input style="display: none"-->
+                <!--type="file"-->
+                <!--(change)="onCoverSelected($event)"-->
+                <!--#coverInput>-->
+                <!--<button mat-mini-fab (click)="coverInput.click()">-->
+                <!--<mat-icon aria-label="Attach file">attach_file</mat-icon>-->
+                <!--</button>-->
+                <!--</div>-->
             </div>
-
-            <!--<div>-->
-            <!--<input style="display: none"-->
-            <!--type="file"-->
-            <!--(change)="onFilesSelected($event)"-->
-            <!--multiple-->
-            <!--#fileInput>-->
-            <!--<button mat-mini-fab (click)="fileInput.click()">-->
-            <!--<mat-icon aria-label="Attach file">attach_file</mat-icon>-->
-            <!--</button>-->
-            <!--</div>-->
-            <!--<div>-->
-            <!--<input style="display: none"-->
-            <!--type="file"-->
-            <!--(change)="onCoverSelected($event)"-->
-            <!--#coverInput>-->
-            <!--<button mat-mini-fab (click)="coverInput.click()">-->
-            <!--<mat-icon aria-label="Attach file">attach_file</mat-icon>-->
-            <!--</button>-->
-            <!--</div>-->
         </div>
     </div>
-</div>
 
-<div class="grid">
-    <div class="grid-item" *ngFor="let item of items; let i = index" (click)="lightbox.open(i)">
-        <img [src]="item.data.thumb" width="150">
+    <div class="grid">
+        <div class="grid-item" fxFlex="25%" fxLayoutAlign="center center" fxFlex.xs="50%" *ngFor="let item of items; let i = index" (click)="lightbox.open(i)">
+            <img [src]="item.data.thumb" width="100%">
+            <div class="close-modal">
+                <button mat-icon-button (click)="close()">
+                    <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+            </div>
+        </div>
     </div>
-</div>
 
-<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
-    <button mat-button color="primary" (click)="closeClick()">Cancel</button>
-    <button mat-button color="primary" (click)="submitClick()">Submit</button>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button color="primary" (click)="closeClick()">Cancel</button>
+        <button mat-button color="primary" (click)="submitClick()">Submit</button>
+    </div>
+
 </div>

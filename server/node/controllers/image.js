@@ -3,37 +3,18 @@ const fs = require('fs');
 
 
 function imageGetByID(req, res) {
-    Image.findById({_id: req.params.id}, (err, image) => {
-        if (err || !image) {
-            return res.json({
-                succes: false,
-            });
-        }
-        res.send(image.img)
-    });
-}
-
-function imageGet2(req, res) {
-    Image.find({}, (err, data) => {
-        if (err) {
-            console.log(err);
-            return res.json({
-                success: false,
-                err: err
-            });
-        }
-
-        if (data && data.length > 0) {
-            return res.json({
-                success: true,
-                data: data
-            });
-        }
-        return res.json({
-            success: true,
-            data: []
-        });
-    });
+    // Image.findById({_id: req.params.id}, (err, image) => {
+    //     if (err || !image) {
+    //         return res.json({
+    //             succes: false,
+    //         });
+    //     }
+    //     res.send(image.img)
+    // });
+    // fs.unlink('uploads/' + req.params.id);
+    let image = fs.readFileSync('uploads/' + req.params.id);
+    res.contentType('image/jpeg');
+    res.send(image)
 }
 
 function imagePost(req, res) {
@@ -72,7 +53,6 @@ function imageDelete(req, res) {
 
 module.exports = {
     imageGetByID,
-    imageGet2,
     imagePost,
     imagePut,
     imageDelete

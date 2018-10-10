@@ -14,8 +14,10 @@ const productSchema = new mongoose.Schema({
         }],
         default: []
     },
-    images: {type: [mongoose.Schema.Types.ObjectId], ref: 'Image'},
-    cover: {type: mongoose.Schema.Types.ObjectId, ref: 'Image', required: true},
+    // images: {type: [mongoose.Schema.Types.ObjectId], ref: 'Image'},
+    // cover: {type: mongoose.Schema.Types.ObjectId, ref: 'Image', required: true},
+    images: {type: [String], default: []},
+    cover: {type: String, required: true},
     category: {type: [mongoose.Schema.Types.ObjectId], ref: 'Category'},
     totalRating: {type: Number, required: true},
     equipment: {type: [String], default: []},
