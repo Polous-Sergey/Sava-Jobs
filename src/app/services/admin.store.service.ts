@@ -35,4 +35,8 @@ export class AdminStoreService {
             observe: 'events'
         });
     }
+
+    deleteImage(image: string) {
+        return this.http.delete('/api/products/' + image);
+    }
 }

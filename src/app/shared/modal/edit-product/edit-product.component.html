@@ -56,10 +56,10 @@
     </div>
 
     <div class="grid">
-        <div class="grid-item" fxFlex="25%" fxLayoutAlign="center center" fxFlex.xs="50%" *ngFor="let item of items; let i = index" (click)="lightbox.open(i)">
+        <div class="grid-item" fxFlex="25%" fxLayoutAlign="center center" fxFlex.xs="50%" *ngFor="let item of items; let i = index">
             <img [src]="item.data.thumb" width="100%">
             <div class="close-modal">
-                <button mat-icon-button (click)="close()">
+                <button mat-icon-button (click)="deleteImage(item.data.thumb)">
                     <mat-icon aria-label="Delete">delete</mat-icon>
                 </button>
             </div>

@@ -57,4 +57,14 @@ export class EditProductComponent implements OnInit {
     closeClick(): void {
         this.dialogRef.close();
     }
+
+    deleteImage(image: string) {
+        this.adminStoreService.deleteImage(image).subscribe((res) => {
+            if (res.success) {
+                console.log(res);
+            } else {
+                console.log(res);
+            }
+        });
+    }
 }
