@@ -63,7 +63,7 @@ async function productPost(req, res) {
 }
 
 function writeAllImages(files) {
-    return files.map((file)=>{
+    return files.map((file) => {
         return file.filename;
     })
 //     return Promise.all(files.map((file) => {
@@ -94,25 +94,81 @@ function writeAllImages(files) {
 //     }))
 }
 
-function unlinkCB(err) {
-    if (err) console.log('Cant delete', err)
-}
-
 function productPut(req, res) {
-    let body = JSON.parse(req.body.product);
-    console.log(body);
-    Product.findById({_id: body._id}, (err, product) => {
+    Product.findById(req.params.id, (err, product) => {
         if (err || !product) {
             return res.json({
                 succes: false,
             });
         }
-        res.send(product);
+
+        let filesForDelete = [];
+        let filesForDeleteIfErr = [];
+        let body = JSON.parse(req.body.product);
+        if (req.body.imagesForDelete) {
+            let imagesForDelete = JSON.parse(req.body.imagesForDelete);
+            imagesForDelete.forEach((image) => {
+                let index = product.images.indexOf(image);
+                if (index === -1) {
+                    return;
+                }
+                filesForDelete.push(product.images[index]);
+                product.images.splice(index, 1);
+            })
+        }
+
+        if (req.files.cover) {
+            filesForDelete.push(product.cover);
+            filesForDeleteIfErr.push(req.files.cover[0].filename);
+            product.cover = req.files.cover[0].filename;
+        }
+        if (req.files.images) {
+            product.images = [...product.images, ...writeAllImages(req.files.images)];
+            filesForDeleteIfErr = [...filesForDeleteIfErr, ...writeAllImages(req.files.images)];
+        }
+
+        product.title = body.title;
+        product.price = body.price;
+        product.description = body.description;
+        product.shortDescription = body.shortDescription;
+        // product.category = body.categoryId;
+        product.totalRating = body.totalRating;
+        product.save((err, data) => {
+            if (err) {
+                deleteFiles(filesForDeleteIfErr);
+                return res.json({
+                    success: false,
+                    err: err
+                });
+            }
+            if (filesForDelete.length > 0) {
+                deleteFiles(filesForDelete);
+            }
+
+            return res.json({
+                success: true,
+                data: data
+            });
+        });
     });
 }
 
+function deleteFiles(fileNames) {
+    return Promise.all(fileNames.map((file) => {
+        return new Promise((resolve, reject) => {
+            fs.unlink('uploads/' + file, function (err) {
+                if (err) {
+                    console.log('cant delete file', err);
+                    return reject(err)
+                }
+                return resolve()
+            });
+        })
+    }))
+}
+
 function productDelete(req, res) {
-    Product.findById({_id: req.params.id}, (err, product) => {
+    Product.findById(req.params.id, (err, product) => {
         if (err || !product) {
             return res.json({
                 succes: false,

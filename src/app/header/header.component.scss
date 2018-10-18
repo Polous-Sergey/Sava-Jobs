@@ -1,9 +1,13 @@
 .mat-toolbar {
-  background-color: transparent;
+  //background-color: transparent;
+  opacity: 0.6;
+  background-color: black;
+  color: white;
+  z-index: 9999;
 }
 
 .header-main {
-  position: absolute;
+  position: fixed;
   h3 {
     font-weight: lighter;
   }
@@ -27,6 +31,7 @@
   a{
     font-weight: lighter;
     margin-left: 20px;
+    color: white;
   }
 }
 

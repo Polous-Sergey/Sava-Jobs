@@ -1,10 +1,33 @@
 .main {
+  .cover {
+    .image-cover {
+      background-color: black;
+      height: 100%;
+      position: relative;
+      .change-cover {
+        position: absolute;
+        top: 0;
+        right: 0;
+        .mat-icon {
+          filter: drop-shadow(0px 0px 1px black);
+          color: white;
+          opacity: 0.6;
+          -webkit-transition: opacity 0.3s;
+          transition: opacity 0.3s;
+        }
+        .mat-icon:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
   .content {
     mat-form-field {
       width: 100%;
     }
   }
   .grid {
+    padding-top: 24px;
     display: flex;
     flex-wrap: wrap;
     .grid-item {
@@ -31,6 +54,23 @@
     }
     .grid-item:hover {
       .close-modal {
+        opacity: 1;
+      }
+    }
+    .addImage {
+      background-color: #404040;
+      min-height: 90px;
+      mat-icon {
+        height: auto;
+        width: auto;
+        font-size: 50px;
+        color: white;
+        filter: drop-shadow(0px 0px 1px black);
+        opacity: 0.6;
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+      }
+      .mat-icon:hover {
         opacity: 1;
       }
     }

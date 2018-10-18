@@ -130,7 +130,7 @@ export class AdminStoreComponent implements OnInit, AfterViewInit {
     editProduct(product: Product) {
         const confiq: any = {
             maxWidth: '98%',
-            maxHeight: '99vh',
+            maxHeight: '90vh',
             width: '750px',
             data: {...product},
         };
@@ -138,6 +138,7 @@ export class AdminStoreComponent implements OnInit, AfterViewInit {
 
         dialogRef.afterClosed().subscribe(result => {
             console.log(result);
+            product = result
         });
     }
 

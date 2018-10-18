@@ -34,7 +34,8 @@ router.post('/login', ctrlAuth.login);
 // product
 router.get('/products', ctrlProducts.productGet);
 router.post('/products', upload.fields([{ name: 'cover', maxCount: 1 }, { name: 'images', maxCount: 20 }]), ctrlProducts.productPost);
-router.put('/products', upload.fields([{ name: 'cover', maxCount: 1 }, { name: 'images', maxCount: 20 }]), ctrlProducts.productPut);
+router.put('/products/:id', upload.fields([{ name: 'cover', maxCount: 1 }, { name: 'images', maxCount: 20 }]), ctrlProducts.productPut);
+// router.put('/products/:id', ctrlProducts.deleteImageFromProduct);
 router.delete('/products', ctrlProducts.productDelete);
 
 // category

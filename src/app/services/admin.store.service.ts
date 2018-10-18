@@ -9,7 +9,7 @@ export class AdminStoreService {
     }
 
     addProduct(images: File[], cover: File, product: Product) {
-        let fd = new FormData();
+        const fd = new FormData();
         fd.append('product', JSON.stringify(product));
         fd.append('cover', cover);
         images.forEach((image: File) => {
@@ -22,21 +22,26 @@ export class AdminStoreService {
         });
     }
 
-    editProduct(images: File[], cover: File, product: Product) {
-        let fd = new FormData();
+    editProduct(images: File[], cover: File, imagesForDelete: string[], product: Product) {
+        const fd = new FormData();
         fd.append('product', JSON.stringify(product));
-        fd.append('cover', cover);
+        if (cover) {
+            fd.append('cover', cover);
+        }
+        if (imagesForDelete.length > 0) {
+            fd.append('imagesForDelete', JSON.stringify(imagesForDelete));
+        }
         images.forEach((image: File) => {
             fd.append('images', image);
         });
 
-        return this.http.put('/api/products', fd, {
+        return this.http.put('/api/products/' + product._id, fd, {
             reportProgress: true,
             observe: 'events'
         });
     }
 
-    deleteImage(image: string) {
-        return this.http.delete('/api/products/' + image);
-    }
+    // deleteImage(image: string, id: string) {
+    //     return this.http.put('/api/products/' + id, {imageName: image});
+    // }
 }
