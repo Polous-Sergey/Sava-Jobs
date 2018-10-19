@@ -33,6 +33,7 @@ import {CardPrevievComponent} from './shared/modal/card-previev/card-previev.com
 import {AddEditProductComponent} from './shared/modal/add-edit-product/add-edit-product.component';
 import {AdminStoreService} from './services/admin.store.service';
 import {EditProductComponent} from './shared/modal/edit-product/edit-product.component';
+import { IphoneComponent } from './service/iphone/iphone.component';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import {EditProductComponent} from './shared/modal/edit-product/edit-product.com
         OrdersComponent,
         CardPrevievComponent,
         AddEditProductComponent,
-        EditProductComponent
+        EditProductComponent,
+        IphoneComponent
     ],
     entryComponents: [
         CardDetailComponent,

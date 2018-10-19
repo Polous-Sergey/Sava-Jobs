@@ -1,6 +1,6 @@
 .apple-grid {
   padding-top: 58px;
-  max-width: 1024px;
+  max-width: 800px;
   width: 100%;
   .grid-item {
     text-align: center;
@@ -9,5 +9,13 @@
     .img-cont {
       padding-bottom: 16px;
     }
+  }
+}
+
+.regular {
+  padding-top: 50px;
+  width: 800px;
+  .regular-item {
+    margin-bottom: 50px;
   }
 }

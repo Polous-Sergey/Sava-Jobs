@@ -1,0 +1,29 @@
+.main-image {
+  padding-top: 104px;
+  img {
+    max-height: 300px;
+  }
+}
+.main {
+  .content {
+    h2 {
+      font-weight: 200;
+      font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+    }
+    .grid {
+      padding-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      .grid-item {
+        width: 200px;
+      }
+    }
+  }
+  .regular {
+    padding-top: 50px;
+    width: 780px;
+    .regular-item {
+      margin-bottom: 50px;
+    }
+  }
+}
