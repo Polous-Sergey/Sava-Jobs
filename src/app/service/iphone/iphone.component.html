@@ -2,94 +2,191 @@
     <img src="/assets/pictures/iphone/iphones.png">
 </div>
 <div class="main" fxLayoutAlign="center none">
-    <div class="content" fxFlex.xs="90%" fxFlex="80%">
-        <h1 class="main-title">Центр ответов на вопросы по обслуживанию iPhone</h1>
-        <div class="intro">
-            <p>Дополнительные сведения о вариантах обслуживания iPhone, о гарантии и ценах.</p>
+    <div class="content"  fxFlex.xs="90%" fxFlex="80%">
+        <h1 class="main-title">Ремонт Apple iPhone:</h1>
+        <!--<div class="intro">-->
+            <!--<p>Дополнительные сведения о вариантах обслуживания iPhone, о гарантии и ценах.</p>-->
+        <!--</div>-->
+        <div fxLayoutAlign="center none">
+            <div class="grid">
+                <a fxFlex="0 1 calc(25% - 40px)" routerLink="/service/price-list/12" fxFlex.xs="0 1 calc(50% - 30px)" *ngFor="let iphone of iphones"
+                     class="grid-item" fxLayout="column">
+                    <img [src]="iphone" width="100%">
+                    iPhone XS
+                </a>
+            </div>
         </div>
-        <div class="grid">
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_XS.jpg" width="100%">
-                iPhone XS
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_XSmax.jpg" width="100%">
-                iPhone XS Max
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_X.jpg" width="100%">
-                iPhone X
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone8.jpg" width="100%">
-                iPhone 8
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_8plus.jpg" width="100%">
-                iPhone 8 Plus
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_7.jpg" width="100%">
-                iPhone 7
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_7plus.jpg" width="100%">
-                iPhone 7 Plus
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_6s.jpg" width="100%">
-                iPhone 6s
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_6splus.jpg" width="100%">
-                iPhone 6s Plus
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_6.jpg" width="100%">
-                iPhone 6
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_6plus.jpg" width="100%">
-                iPhone 6 Plus
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_SE.jpg" width="100%">
-                iPhone SE
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_5s.jpg" width="100%">
-                iPhone 5s
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_5c.jpg" width="100%">
-                iPhone 5c
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/iphone_5.png" width="100%">
-                iPhone 5
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/IPhone4S.png" width="100%">
-                iPhone 4s
-            </div>
-            <div class="grid-item" fxLayout="column">
-                <img src="/assets/pictures/iphone/done/IPhone4S.png" height="100%">
-                iPhone 4
-            </div>
-            <!--<div class="grid-item" fxLayout="column">-->
-                <!--<img src="src/assets/pictures/iphone/iphone-cplor/" height="100%">-->
-                <!--iPhone 3GS-->
-            <!--</div>-->
-            <!--<div class="grid-item" fxLayout="column">-->
-                <!--<img src="src/assets/pictures/iphone/iphone-cplor/" height="100%">-->
-                <!--iPhone 3G-->
-            <!--</div>-->
-            <!--<div class="grid-item" fxLayout="column">-->
-                <!--<img src="src/assets/pictures/iphone/iphone-cplor/" height="100%" width="auto">-->
-                <!--iPhone-->
-            <!--</div>-->
 
-        </div>
+
+        <!--<div fxLayoutAlign="center none">-->
+            <!--<div class="grid">-->
+                <!--<div fxFlex="" class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone XS-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone XS Max-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone X-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 8-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 8 Plus-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 7-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 7 Plus-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 6s-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 6s Plus-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 6-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 6 Plus-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone SE-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 5s-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 5c-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 5-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 4s-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 4-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 3GS-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone 3G-->
+                <!--</div>-->
+                <!--<div class="grid-item" fxLayout="column">-->
+                    <!--<img src="/assets/pictures/iphone/iphone7-colors.png" width="100%">-->
+                    <!--iPhone-->
+                <!--</div>-->
+
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="grid">-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_XS.jpg" width="100%">-->
+                <!--iPhone XS-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_XSmax.jpg" width="100%">-->
+                <!--iPhone XS Max-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_X.jpg" width="100%">-->
+                <!--iPhone X-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone8.jpg" width="100%">-->
+                <!--iPhone 8-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_8plus.jpg" width="100%">-->
+                <!--iPhone 8 Plus-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_7.jpg" width="100%">-->
+                <!--iPhone 7-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_7plus.jpg" width="100%">-->
+                <!--iPhone 7 Plus-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_6s.jpg" width="100%">-->
+                <!--iPhone 6s-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_6splus.jpg" width="100%">-->
+                <!--iPhone 6s Plus-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_6.jpg" width="100%">-->
+                <!--iPhone 6-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_6plus.jpg" width="100%">-->
+                <!--iPhone 6 Plus-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_SE.jpg" width="100%">-->
+                <!--iPhone SE-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_5s.jpg" width="100%">-->
+                <!--iPhone 5s-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_5c.jpg" width="100%">-->
+                <!--iPhone 5c-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/iphone_5.png" width="100%">-->
+                <!--iPhone 5-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/IPhone4S.png" width="100%">-->
+                <!--iPhone 4s-->
+            <!--</div>-->
+            <!--<div class="grid-item" fxLayout="column">-->
+                <!--<img src="/assets/pictures/iphone/done/IPhone4S.png" height="100%">-->
+                <!--iPhone 4-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="grid-item" fxLayout="column">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img src="src/assets/pictures/iphone/iphone-cplor/" height="100%">&ndash;&gt;-->
+                <!--&lt;!&ndash;iPhone 3GS&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="grid-item" fxLayout="column">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img src="src/assets/pictures/iphone/iphone-cplor/" height="100%">&ndash;&gt;-->
+                <!--&lt;!&ndash;iPhone 3G&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="grid-item" fxLayout="column">&ndash;&gt;-->
+                <!--&lt;!&ndash;<img src="src/assets/pictures/iphone/iphone-cplor/" height="100%" width="auto">&ndash;&gt;-->
+                <!--&lt;!&ndash;iPhone&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+        <!--</div>-->
         <!--<div class="grid">-->
             <!--<div class="grid-item" fxLayout="column">-->
                 <!--<img src="/assets/pictures/iphone/iphone-cplor/iphone-xs-colors.jpg" height="100%">-->

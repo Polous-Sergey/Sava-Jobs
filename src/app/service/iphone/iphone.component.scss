@@ -4,24 +4,32 @@
     max-height: 300px;
   }
 }
+
 .main {
   .content {
     h2 {
       font-weight: 200;
-      font-family: "Myriad Set Pro","Helvetica Neue","Helvetica","Arial","Verdana","sans-serif";
+      font-family: "Myriad Set Pro", "Helvetica Neue", "Helvetica", "Arial", "Verdana", "sans-serif";
     }
     .grid {
+      max-width: 900px;
       padding-top: 24px;
       display: flex;
       flex-wrap: wrap;
       .grid-item {
-        width: 200px;
+        margin: 0 15px;
+      }
+      @media (min-width: 600px) {
+        margin: 0 20px;
+        .grid-item {
+          margin: 0 20px;
+        }
       }
     }
   }
   .regular {
     padding-top: 50px;
-    width: 780px;
+    max-width: 780px;
     .regular-item {
       margin-bottom: 50px;
     }

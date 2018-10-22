@@ -34,6 +34,7 @@ import {AddEditProductComponent} from './shared/modal/add-edit-product/add-edit-
 import {AdminStoreService} from './services/admin.store.service';
 import {EditProductComponent} from './shared/modal/edit-product/edit-product.component';
 import { IphoneComponent } from './service/iphone/iphone.component';
+import { PriceListComponent } from './service/price-list/price-list.component';
 
 @NgModule({
     declarations: [
@@ -56,7 +57,8 @@ import { IphoneComponent } from './service/iphone/iphone.component';
         CardPrevievComponent,
         AddEditProductComponent,
         EditProductComponent,
-        IphoneComponent
+        IphoneComponent,
+        PriceListComponent
     ],
     entryComponents: [
         CardDetailComponent,
