@@ -1,6 +1,72 @@
 .price-list {
   padding-top: 70px;
   .price-list-header {
+    max-width: 1270px;
     //background-color: #F5F5F5;
+    h1 {
+      font-weight: 400;
+      font-size: 38px;
+      margin: 20px 0;
+    }
+    .text {
+      .background {
+        //background: url("/assets/pictures/iphone/iphone-cplor/iphone7-colors.jpg") no-repeat center right;
+        //background-size: cover;
+      }
+
+      .grid {
+        display: flex;
+        flex-wrap: wrap;
+        //background: rgba(0, 0, 0, 0.4);
+        .grid-item {
+          a {
+            //color: white;
+          }
+        }
+      }
+      mat-icon {
+        //width: 100%;
+        height: 100%;
+      }
+    }
+
+    .image {
+      //padding-right: 40px;
+      //max-height: 350px;
+    }
+  }
+  mat-divider {
+    margin: 15px 0;
+  }
+  .subheader {
+    text-align: center;
+    h2 {
+      font-weight: 300;
+      font-size: 35px;
+      //margin: 20px 0;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+  .list {
+    margin-bottom: 50px;
+    .price-item {
+      min-height: 48px;
+      padding: 0 24px;
+      font-size: 15px;
+      .subtitle {
+        color: #727272;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      .price {
+        color: #727272;
+      }
+    }
+    .price-item:hover {
+      background-color: #F5F5F5;
+    }
   }
 }

@@ -1,20 +1,165 @@
-<div class="price-list">
-    <div class="price-list-header" fxLayout="row">
-        <div class="text" fxFlex="50%">
-            <div class="col-sm-9 pb60">
-                <h1>Ремонт iPhone 5s</h1>
-                <div class="is-header-problems">
-                    <ul>
-                        <li *ngFor="let data of data1">
-                            <span><mat-icon>home</mat-icon></span>
-                            <a class="is-problems-text">{{data}}</a>
-                        </li>
-                    </ul>
+<div fxLayoutAlign="center none">
+    <div class="price-list" fxFlex="90%" fxFlex.xs="95%">
+        <div fxLayoutAlign="center none">
+            <div class="price-list-header">
+                <h1>Ремонт iPhone 7</h1>
+                <div fxLayout="row">
+                    <div class="image" fxHide.lt-lg="true" fxFlex="35%">
+                        <img src="/assets/pictures/iphone/iphone-cplor/iphone7-colors.jpg" width="100%">
+                    </div>
+                    <div class="text" fxLayoutAlign=" center" fxFlex="65%">
+
+
+                        <div class="background">
+                            <!--<div class="grid">-->
+                            <!--<a fxFlex="0 1 calc(25% - 40px)" routerLink="/service/price-list/12" fxFlex.xs="0 1 calc(50% - 30px)" *ngFor="let iphone of iphones"-->
+                            <!--class="grid-item" fxLayout="column">-->
+                            <!--<img [src]="iphone" width="100%">-->
+                            <!--iPhone XS-->
+                            <!--</a>-->
+                            <!--</div>-->
+                            <mat-list class="grid">
+                                <mat-list-item class="grid-item" fxFlex="33.3%" fxFlex.lt-lg="50%"
+                                               *ngFor="let data of data1">
+                                    <mat-icon matListIcon [svgIcon]="data.icon"></mat-icon>
+                                    <a matLine [matMenuTriggerFor]="menu">{{data.text}}</a>
+                                </mat-list-item>
+                            </mat-list>
+
+                            <mat-menu #menu="matMenu">
+                                <button mat-menu-item>Item 1</button>
+                                <button mat-menu-item>Item 2</button>
+                            </mat-menu>
+                            <!--<ul>-->
+                            <!--<li *ngFor="let data of data1">-->
+                            <!--<mat-icon [svgIcon]="data.icon"></mat-icon>-->
+                            <!--<a>{{data.text}}</a>-->
+                            <!--</li>-->
+                            <!--</ul>-->
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="image" fxFlex="50%">
-            <img src="/assets/pictures/iphone/iphone-cplor/iphone7-colors.jpg" s>
+        <mat-divider></mat-divider>
+        <div class="subheader">
+            <h2>Стоимость услуг по ремонту iPhone 7</h2>
+            <p>Мы используем только качественные комплектующие для ремонта iPhone 7 <br>
+                Запчасти для ремонта уже включены в стоимость работы.</p>
+        </div>
+        <div class="list">
+            <mat-accordion>
+            <div class="price-item mat-elevation-z2" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxLayout="column">
+                    <div>
+                        Диагностика iPhone 7
+                    </div>
+                    <div class="subtitle">
+                        Определение неисправностей и необходимых работ по ремонту iPhone 7
+                    </div>
+                </div>
+                <div class="price">
+                    Бесплатно
+                </div>
+
+            </div>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Замена экрана и корпусных частей iPhone 7
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="column">
+                        <div>
+                            Замена дисплея iPhone 7
+                        </div>
+                        <div class="subtitle">
+                            Дисплей iPhone 7 разбит, нет изображения, глючит сенсор или не работает 3D Touch.
+                        </div>
+                    </div>
+                    <div class="price">
+                        2490
+                    </div>
+                </div>
+                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="column">
+                        <div>
+                            Замена корпуса iPhone 7
+                        </div>
+                        <div class="subtitle">
+                            Корпус iPhone 7 деформировался после падения или сильно поцарапался.
+                        </div>
+                    </div>
+                    <div class="price">
+                        1200
+                    </div>
+                </div>
+
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Замена или ремонт компонентов iPhone 7
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="column">
+                        <div>
+                            Диагностика iPhone 7
+                        </div>
+                        <div class="subtitle">
+                            Определение неисправностей и необходимых работ по ремонту iPhone 7
+                        </div>
+                    </div>
+                    <div class="price">
+                        Бесплатно
+                    </div>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Замена или ремонт шлейфов iPhone 7
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="column">
+                        <div>
+                            Диагностика iPhone 7
+                        </div>
+                        <div class="subtitle">
+                            Определение неисправностей и необходимых работ по ремонту iPhone 7
+                        </div>
+                    </div>
+                    <div class="price">
+                        Бесплатно
+                    </div>
+                </div>
+            </mat-expansion-panel>
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Ремонт материнской платы iPhone 7
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
+                    <div fxLayout="column">
+                        <div>
+                            Диагностика iPhone 7
+                        </div>
+                        <div class="subtitle">
+                            Определение неисправностей и необходимых работ по ремонту iPhone 7
+                        </div>
+                    </div>
+                    <div class="price">
+                        Бесплатно
+                    </div>
+                </div>
+            </mat-expansion-panel>
+            </mat-accordion>
         </div>
     </div>
 </div>
