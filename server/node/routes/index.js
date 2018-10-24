@@ -23,6 +23,7 @@ const ctrlAuth = require('../controllers/authentication');
 const ctrlProducts = require('../controllers/products');
 const ctrlCategory = require('../controllers/category');
 const ctrlImage = require('../controllers/image');
+const ctrlPriceList = require('../controllers/price-list');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -46,6 +47,9 @@ router.delete('/category', ctrlCategory.categoryDelete);
 
 // image
 router.get('/image/:id', ctrlImage.imageGetByID);
+
+//price-list
+router.get('/price-list', ctrlPriceList.priceListGet);
 
 
 module.exports = router;

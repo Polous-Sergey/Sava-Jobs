@@ -21,10 +21,10 @@ const productSchema = new mongoose.Schema({
     category: {type: [mongoose.Schema.Types.ObjectId], ref: 'Category'},
     totalRating: {type: Number, required: true},
     equipment: {type: [String], default: []},
-    created: {type: Date, default: Date.now},
     createdBy: {type: String, default: 'admin'},
     hidden: {type: Boolean, default: false},
-    isSold: {type: Boolean, default: false}
+    isSold: {type: Boolean, default: false},
+    created: {type: Date, default: Date.now}
 });
 
 // productSchema.plugin(deepPopulate);

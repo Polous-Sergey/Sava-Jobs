@@ -73,6 +73,10 @@
       .mat-icon:hover {
         opacity: 1;
       }
+      .mat-icon-button {
+        width: 50px;
+        height: 50px;
+      }
     }
   }
   @media (min-width: 600px) {

@@ -33,8 +33,13 @@ import {CardPrevievComponent} from './shared/modal/card-previev/card-previev.com
 import {AddEditProductComponent} from './shared/modal/add-edit-product/add-edit-product.component';
 import {AdminStoreService} from './services/admin.store.service';
 import {EditProductComponent} from './shared/modal/edit-product/edit-product.component';
-import { IphoneComponent } from './service/iphone/iphone.component';
-import { PriceListComponent } from './service/price-list/price-list.component';
+import {IphoneComponent} from './service/iphone/iphone.component';
+import {PriceListComponent} from './service/price-list/price-list.component';
+import {ServiceCenterService} from './services/service-center.service';
+import {AdminServiceCenterService} from './services/admin-service-center.service';
+import {AddEditPriceListComponent} from './shared/modal/add-edit-price-list/add-edit-price-list.component';
+import {AddEditPriceListCategoryComponent} from './shared/modal/add-edit-price-list-category/add-edit-price-list-category.component';
+import {AddEditPriceListItemComponent} from './shared/modal/add-edit-price-list-item/add-edit-price-list-item.component';
 
 @NgModule({
     declarations: [
@@ -58,7 +63,10 @@ import { PriceListComponent } from './service/price-list/price-list.component';
         AddEditProductComponent,
         EditProductComponent,
         IphoneComponent,
-        PriceListComponent
+        PriceListComponent,
+        AddEditPriceListComponent,
+        AddEditPriceListCategoryComponent,
+        AddEditPriceListItemComponent
     ],
     entryComponents: [
         CardDetailComponent,
@@ -66,7 +74,10 @@ import { PriceListComponent } from './service/price-list/price-list.component';
         SubmitOrderComponent,
         CardPrevievComponent,
         AddEditProductComponent,
-        EditProductComponent
+        EditProductComponent,
+        AddEditPriceListComponent,
+        AddEditPriceListCategoryComponent,
+        AddEditPriceListItemComponent
     ],
     imports: [
         BrowserModule,
@@ -88,7 +99,9 @@ import { PriceListComponent } from './service/price-list/price-list.component';
     ],
     providers: [
         StoreService,
-        AdminStoreService
+        AdminStoreService,
+        ServiceCenterService,
+        AdminServiceCenterService
     ],
     bootstrap: [AppComponent]
 })

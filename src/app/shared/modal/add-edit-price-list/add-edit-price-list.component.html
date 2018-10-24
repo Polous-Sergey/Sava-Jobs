@@ -1,0 +1,139 @@
+<div class="main">
+    <div class="content">
+        <div fxLayout="row" fxLayoutAlign="space-between none">
+            <h1 mat-dialog-title>Add price list</h1>
+            <button mat-button style="height: 36px" (click)="addEditPriceListCategory()">Add category</button>
+        </div>
+
+        <div mat-dialog-content>
+
+            <mat-form-field>
+                <input placeholder="Model" matInput [(ngModel)]="priceList.model">
+            </mat-form-field>
+
+            <mat-list>
+                <div fxLayout="row" fxLayoutAlign="space-between none">
+                    <h3 matSubheader>Top items</h3>
+                    <button mat-icon-button>
+                        <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                    </button>
+                </div>
+                <mat-list-item *ngFor="let item of priceList.topItems">
+                    <h4 matLine>{{item.title}}</h4>
+                    <p matLine>{{item.subTitle}}</p>
+                    <p matLine>{{item.price}}</p>
+                </mat-list-item>
+
+                <div *ngFor="let category of priceList.categories let i = index">
+                    <mat-divider></mat-divider>
+                    <div fxLayout="row" fxLayoutAlign="space-between none">
+                        <h5 style="margin-top: 10px; font-weight: 300;">{{category.name}}</h5>
+                        <div>
+                            <button (click)="addEditPriceListItem(i)" mat-icon-button>
+                                <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+                            </button>
+                            <button (click)="addEditPriceListCategory(i)" mat-icon-button>
+                                <mat-icon aria-label="Example icon-button with a heart icon">edit</mat-icon>
+                            </button>
+                            <button mat-icon-button>
+                                <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <mat-list-item *ngFor="let item of category.items">
+                        <h4 matLine>{{item.title}}</h4>
+                        <p matLine>{{item.subTitle}}</p>
+                        <p matLine>{{item.price}}</p>
+                    </mat-list-item>
+                </div>
+            </mat-list>
+            <!--<div fxLayout="row" fxLayoutAlign="space-between center">-->
+            <!--<div fxLayout="column" fxFlex="50%" fxLayoutAlign="center end">-->
+            <!--<mat-form-field>-->
+            <!--<input placeholder="Title" matInput [(ngModel)]="product.title">-->
+            <!--</mat-form-field>-->
+            <!--<mat-form-field>-->
+            <!--<input placeholder="Price" matInput [(ngModel)]="product.price">-->
+            <!--</mat-form-field>-->
+            <!--<mat-form-field>-->
+            <!--<textarea matInput placeholder="Short Description"-->
+            <!--[(ngModel)]="product.shortDescription"></textarea>-->
+            <!--</mat-form-field>-->
+            <!--</div>-->
+            <!--<div fxLayout="column" fxFlex="50%" fxLayoutAlign="center end">-->
+            <!--<mat-form-field>-->
+            <!--<input placeholder="Total Rating" matInput [(ngModel)]="product.totalRating">-->
+            <!--</mat-form-field>-->
+            <!--<mat-form-field>-->
+            <!--<input placeholder="Category" matInput>-->
+            <!--</mat-form-field>-->
+            <!--<mat-form-field>-->
+            <!--<textarea matInput placeholder="Description" [(ngModel)]="product.description"></textarea>-->
+            <!--</mat-form-field>-->
+            <!--</div>-->
+
+            <!--</div>-->
+
+            <div fxHide="true">
+                <input type="file"
+                       (change)="onImageSelected($event)"
+                       #imageInput>
+                <input type="file"
+                       (change)="onListImageSelected($event)"
+                       #listImageInput>
+            </div>
+
+
+            <div class="image-title">
+                <div fxFlex="50%">
+                    <h6>Main image</h6>
+                </div>
+                <div fxFlex="50%">
+                    <h6>List image</h6>
+                </div>
+            </div>
+            <div class="images-container">
+                <div fxFlex="50%" class="image-item-container" fxLayoutAlign=" center">
+                    <div class="image-item" *ngIf="previewImage">
+                        <img [src]="previewImage" width="100%">
+                        <div class="change-image">
+                            <button mat-icon-button (click)="imageInput.click()">
+                                <mat-icon aria-label="Delete">autorenew</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="addImageContainer" *ngIf="!previewImage">
+                        <div class="addImage" fxLayoutAlign="center center">
+                            <button mat-icon-button (click)="imageInput.click()">
+                                <mat-icon aria-label="Add image">add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div fxFlex="50%" class="image-item-container" fxLayoutAlign=" center">
+                    <div class="image-item" *ngIf="previewlistImage">
+                        <img [src]="previewlistImage" width="100%">
+                        <div class="change-image">
+                            <button mat-icon-button (click)="listImageInput.click()">
+                                <mat-icon aria-label="Delete">autorenew</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="addImageContainer" *ngIf="!previewlistImage">
+                        <div class="addImage" fxLayoutAlign="center center">
+                            <button mat-icon-button (click)="listImageInput.click()">
+                                <mat-icon aria-label="Add image">add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button color="primary" (click)="closeClick()">Cancel</button>
+        <button mat-button color="primary" (click)="submitClick()">Submit</button>
+    </div>
+</div>
+

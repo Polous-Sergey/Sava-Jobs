@@ -1,0 +1,14 @@
+<div class="main">
+    <div class="content">
+        <h1 mat-dialog-title>Add price list category</h1>
+        <div mat-dialog-content>
+            <mat-form-field>
+                <input placeholder="Title" matInput [(ngModel)]="categoryName">
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end center">
+        <button mat-button color="primary" (click)="closeClick()">Cancel</button>
+        <button mat-button color="primary" (click)="submitClick()">Submit</button>
+    </div>
+</div>

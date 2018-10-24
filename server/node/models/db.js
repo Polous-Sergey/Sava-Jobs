@@ -48,3 +48,4 @@ require('./users');
 require('./products');
 require('./category');
 require('./image');
+require('./price-list');
