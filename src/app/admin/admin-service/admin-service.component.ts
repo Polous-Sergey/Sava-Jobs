@@ -5,8 +5,6 @@ import {Product} from '../../shared/model/product';
 import {map, startWith, switchMap} from 'rxjs/internal/operators';
 import {CardPrevievComponent} from '../../shared/modal/card-previev/card-previev.component';
 import {CardDetailComponent} from '../../shared/modal/card-detail/card-detail.component';
-import {AddEditProductComponent} from '../../shared/modal/add-edit-product/add-edit-product.component';
-import {EditProductComponent} from '../../shared/modal/edit-product/edit-product.component';
 import {ServiceCenterService} from '../../services/service-center.service';
 import {PriceList} from '../../shared/model/price-list';
 import {AddEditPriceListComponent} from '../../shared/modal/add-edit-price-list/add-edit-price-list.component';
@@ -44,7 +42,6 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
             .subscribe((state: BreakpointState) => {
                 this.media = state.matches;
             });
-        this.addProduct();
     }
 
     ngAfterViewInit() {
@@ -53,7 +50,7 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
                 startWith({}),
                 switchMap((params?) => {
                     this.isLoadingResults = true;
-                    return this.serviceCenterService.getAll();
+                    return this.serviceCenterService.getAllPriceList();
                 }),
                 map(data => {
                     this.isLoadingResults = false;
@@ -124,7 +121,10 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
         const dialogRef = this.dialog.open(AddEditPriceListComponent, confiq);
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log(result);
+            if (result) {
+                console.log(result);
+                this.getProducts$.emit();
+            }
         });
     }
 
@@ -138,8 +138,10 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
         const dialogRef = this.dialog.open(AddEditPriceListComponent, confiq);
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log(result);
-            // product = result;
+            if (result) {
+                console.log(result);
+                this.getProducts$.emit();
+            }
         });
     }
 }

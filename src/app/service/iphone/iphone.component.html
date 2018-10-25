@@ -9,10 +9,10 @@
         <!--</div>-->
         <div fxLayoutAlign="center none">
             <div class="grid">
-                <a fxFlex="0 1 calc(25% - 40px)" routerLink="/service/price-list/12" fxFlex.xs="0 1 calc(50% - 30px)" *ngFor="let iphone of iphones"
+                <a fxFlex="0 1 calc(25% - 40px)" routerLink="/service/price-list/{{iphone._id}}" fxFlex.xs="0 1 calc(50% - 30px)" *ngFor="let iphone of iphones"
                      class="grid-item" fxLayout="column">
-                    <img [src]="iphone" width="100%">
-                    iPhone XS
+                    <img [src]="'/api/image/' + iphone.image" width="100%">
+                    {{iphone.model}}
                 </a>
             </div>
         </div>

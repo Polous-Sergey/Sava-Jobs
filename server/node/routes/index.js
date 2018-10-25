@@ -50,6 +50,10 @@ router.get('/image/:id', ctrlImage.imageGetByID);
 
 //price-list
 router.get('/price-list', ctrlPriceList.priceListGet);
+router.get('/price-list-all', ctrlPriceList.priceListGetAll);
+router.get('/price-list/:id', ctrlPriceList.priceListGetById);
+router.post('/price-list', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'listImage', maxCount: 1 }]), ctrlPriceList.priceListPost);
+router.put('/price-list/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'listImage', maxCount: 1 }]), ctrlPriceList.priceListPut);
 
 
 module.exports = router;

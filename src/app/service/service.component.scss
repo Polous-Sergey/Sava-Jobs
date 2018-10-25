@@ -12,10 +12,43 @@
   }
 }
 
+.main-service-container {
+  .service-item {
+    //miheight: 220px;
+    background-color: #EBEBEB;
+    text-align: center;
+    h2 {
+      font-weight: 300;
+      font-size: 35px;
+      //margin: 20px 0;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 300;
+    }
+    .image-container {
+      //height: 60%;
+    }
+  }
+}
+
 .regular {
   padding-top: 50px;
-  width: 800px;
+  max-width: 800px;
   .regular-item {
     margin-bottom: 50px;
+  }
+}
+
+.subheader {
+  text-align: center;
+  h2 {
+    font-weight: 300;
+    font-size: 35px;
+    //margin: 20px 0;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 300;
   }
 }

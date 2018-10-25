@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ServiceCenterService} from '../../services/service-center.service';
 
 @Component({
     selector: 'app-iphone',
@@ -9,14 +10,15 @@ export class IphoneComponent implements OnInit {
     iphones = [];
 
 
-    constructor() {
+    constructor(private serviceCenterService: ServiceCenterService) {
     }
 
     ngOnInit() {
-        for (let i = 0; this.iphones.length < 5; i++) {
-            this.iphones.push('/assets/pictures/iphone/iphone7-colors.png');
-        }
-        console.log(this.iphones);
+        this.serviceCenterService.getIphonePriceList().subscribe((res: any) => {
+            if (res.success) {
+                this.iphones = res.data;
+            }
+        });
     }
 
 }

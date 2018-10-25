@@ -1,12 +1,12 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef, MatDialog} from '@angular/material';
-import {HttpEventType} from '@angular/common/http';
 import {FormControl, Validators} from '@angular/forms';
 import {PriceList} from '../../model/price-list';
 import {AdminServiceCenterService} from '../../../services/admin-service-center.service';
 import {PriceListItem} from '../../model/price-list-item';
 import {AddEditPriceListItemComponent} from '../add-edit-price-list-item/add-edit-price-list-item.component';
 import {AddEditPriceListCategoryComponent} from '../add-edit-price-list-category/add-edit-price-list-category.component';
+import {HttpEventType} from '@angular/common/http';
 
 @Component({
     selector: 'app-add-edit-price-list',
@@ -19,6 +19,7 @@ export class AddEditPriceListComponent implements OnInit {
     previewImage: string = null;
     previewlistImage: string = null;
     imagesForDelete: string[] = [];
+    edit: boolean;
 
     constructor(private dialogRef: MatDialogRef<AddEditPriceListComponent>,
                 @Inject(MAT_DIALOG_DATA) private priceList: PriceList,
@@ -28,7 +29,12 @@ export class AddEditPriceListComponent implements OnInit {
 
     ngOnInit() {
         if (!this.priceList) {
+            this.edit = false;
             this.priceList = new PriceList(null, '', '', '', [], []);
+        } else {
+            this.edit = true;
+            this.previewImage = '/api/image/' + this.priceList.image;
+            this.previewlistImage = '/api/image/' + this.priceList.listImage;
         }
     }
 
@@ -47,46 +53,66 @@ export class AddEditPriceListComponent implements OnInit {
     }
 
     submitClick() {
-        // this.adminStoreService.editProduct(this.images, this.cover, this.imagesForDelete, this.product).subscribe((event: any) => {
-        //     if (event.type === HttpEventType.UploadProgress) {
-        //         console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
-        //     } else if (event.type === HttpEventType.Response) {
-        //         console.log(event);
-        //         if (event.body.success) {
-        //             this.dialogRef.close(event.body.data);
-        //         }
-        //     }
-        // });
+        if (this.edit) {
+            return this.adminServiceCenterService.editPriceList(this.image, this.listImage, this.priceList).subscribe((event: any) => {
+                if (event.type === HttpEventType.UploadProgress) {
+                    console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+                } else if (event.type === HttpEventType.Response) {
+                    console.log(event);
+                    if (event.body.success) {
+                        this.dialogRef.close(event.body.data);
+                    }
+                }
+            });
+        }
+        this.adminServiceCenterService.addPriceList(this.image, this.listImage, this.priceList).subscribe((event: any) => {
+            if (event.type === HttpEventType.UploadProgress) {
+                console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%');
+            } else if (event.type === HttpEventType.Response) {
+                console.log(event);
+                if (event.body.success) {
+                    this.dialogRef.close(event.body.data);
+                }
+            }
+        });
     }
 
     closeClick(): void {
         this.dialogRef.close();
     }
 
-    // deletePreviewImage(previewImageIndex: number) {
-    //     this.previewImages.splice(previewImageIndex, 1);
-    //     this.images.splice(previewImageIndex, 1);
-    // }
-    //
-    // deleteImage(imageIndex: number, image: string) {
-    //     this.imagesForDelete.push(image);
-    //     this.product.images.splice(imageIndex, 1);
-    // }
+    addEditPriceListItem(categoryIndex: number, itemIndex?: number) {
+        let data;
+        if (categoryIndex === -1) {
+            data = this.priceList.topItems;
+        } else {
+            data = this.priceList.categories[categoryIndex].items;
+        }
 
-    addEditPriceListItem(categoryIndex: number, priceListItem?: PriceListItem) {
         const confiq: any = {
             maxWidth: '98%',
             maxHeight: '90vh',
             width: '320px',
-            data: priceListItem ? {...priceListItem} : null
+            data: itemIndex || itemIndex === 0 ? {...data[itemIndex]} : null
         };
         const dialogRef = this.dialog.open(AddEditPriceListItemComponent, confiq);
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
-                this.priceList.categories[categoryIndex].items.push(result);
+                if (itemIndex || itemIndex === 0) {
+                    return data[itemIndex] = result;
+                }
+                data.push(result);
             }
         });
+    }
+
+    deletePriceListItem(categoryIndex: number, itemIndex: number) {
+        if (categoryIndex === -1) {
+            this.priceList.topItems.splice(itemIndex, 1);
+        } else {
+            this.priceList.categories[categoryIndex].items.splice(itemIndex, 1);
+        }
     }
 
     addEditPriceListCategory(categoryIndex?: number) {
@@ -109,5 +135,9 @@ export class AddEditPriceListComponent implements OnInit {
                 });
             }
         });
+    }
+
+    deletePriceListCategory(categoryIndex: number) {
+        this.priceList.categories.splice(categoryIndex, 1)
     }
 }

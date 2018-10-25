@@ -2,10 +2,10 @@
     <div class="price-list" fxFlex="90%" fxFlex.xs="95%">
         <div fxLayoutAlign="center none">
             <div class="price-list-header">
-                <h1>Ремонт iPhone 7</h1>
+                <h1>{{priceList.model}}</h1>
                 <div fxLayout="row">
-                    <div class="image" fxHide.lt-lg="true" fxFlex="35%">
-                        <img src="/assets/pictures/iphone/iphone-cplor/iphone7-colors.jpg" width="100%">
+                    <div class="image" fxHide.lt-lg fxFlex="35%">
+                        <img [src]="'/api/image/' + priceList.listImage" width="100%">
                     </div>
                     <div class="text" fxLayoutAlign=" center" fxFlex="65%">
 
@@ -50,115 +50,42 @@
         </div>
         <div class="list">
             <mat-accordion>
-            <div class="price-item mat-elevation-z2" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayout="column">
-                    <div>
-                        Диагностика iPhone 7
+                <div class="price-item mat-elevation-z2" *ngFor="let item of priceList.topItems" fxLayout="row"
+                     fxLayoutAlign="space-between center">
+                    <div fxLayout="column">
+                        <div>
+                            {{item.title}}
+                        </div>
+                        <div class="subtitle">
+                            {{item.subTitle}}
+                        </div>
                     </div>
-                    <div class="subtitle">
-                        Определение неисправностей и необходимых работ по ремонту iPhone 7
+                    <div class="price">
+                        {{item.price}}
                     </div>
-                </div>
-                <div class="price">
-                    Бесплатно
-                </div>
 
-            </div>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Замена экрана и корпусных частей iPhone 7
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
-                    <div fxLayout="column">
-                        <div>
-                            Замена дисплея iPhone 7
-                        </div>
-                        <div class="subtitle">
-                            Дисплей iPhone 7 разбит, нет изображения, глючит сенсор или не работает 3D Touch.
-                        </div>
-                    </div>
-                    <div class="price">
-                        2490₴
-                    </div>
                 </div>
-                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
-                    <div fxLayout="column">
-                        <div>
-                            Замена корпуса iPhone 7
+                <mat-expansion-panel *ngFor="let category of priceList.categories">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            {{category.name}}
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div *ngFor="let item of category.items" class="price-item" fxLayout="row"
+                         fxLayoutAlign="space-between center">
+                        <div fxLayout="column">
+                            <div>
+                                {{item.title}}
+                            </div>
+                            <div class="subtitle">
+                                {{item.subTitle}}
+                            </div>
                         </div>
-                        <div class="subtitle">
-                            Корпус iPhone 7 деформировался после падения или сильно поцарапался.
-                        </div>
-                    </div>
-                    <div class="price">
-                        1200₴
-                    </div>
-                </div>
-
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Замена или ремонт компонентов iPhone 7
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-
-                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
-                    <div fxLayout="column">
-                        <div>
-                            Диагностика iPhone 7
-                        </div>
-                        <div class="subtitle">
-                            Определение неисправностей и необходимых работ по ремонту iPhone 7
+                        <div class="price">
+                            {{item.price}}
                         </div>
                     </div>
-                    <div class="price">
-                        Бесплатно
-                    </div>
-                </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Замена или ремонт шлейфов iPhone 7
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
-                    <div fxLayout="column">
-                        <div>
-                            Диагностика iPhone 7
-                        </div>
-                        <div class="subtitle">
-                            Определение неисправностей и необходимых работ по ремонту iPhone 7
-                        </div>
-                    </div>
-                    <div class="price">
-                        Бесплатно
-                    </div>
-                </div>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Ремонт материнской платы iPhone 7
-                    </mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="price-item" fxLayout="row" fxLayoutAlign="space-between center">
-                    <div fxLayout="column">
-                        <div>
-                            Диагностика iPhone 7
-                        </div>
-                        <div class="subtitle">
-                            Определение неисправностей и необходимых работ по ремонту iPhone 7
-                        </div>
-                    </div>
-                    <div class="price">
-                        Бесплатно
-                    </div>
-                </div>
-            </mat-expansion-panel>
+                </mat-expansion-panel>
             </mat-accordion>
         </div>
     </div>

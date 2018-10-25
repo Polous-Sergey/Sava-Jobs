@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Product} from '../shared/model/product';
+import {PriceList} from '../shared/model/price-list';
 
 @Injectable()
 export class AdminServiceCenterService {
@@ -8,36 +8,31 @@ export class AdminServiceCenterService {
     constructor(private http: HttpClient) {
     }
 
-    // addProduct(images: File[], cover: File, product: Product) {
-    //     const fd = new FormData();
-    //     fd.append('product', JSON.stringify(product));
-    //     fd.append('cover', cover);
-    //     images.forEach((image: File) => {
-    //         fd.append('images', image);
-    //     });
-    //
-    //     return this.http.post('/api/products', fd, {
-    //         reportProgress: true,
-    //         observe: 'events'
-    //     });
-    // }
+    addPriceList(image: File, listImage: File, priceList: PriceList) {
+        const fd = new FormData();
+        fd.append('priceList', JSON.stringify(priceList));
+        fd.append('image', image);
+        fd.append('listImage', listImage);
 
-    // editProduct(images: File[], cover: File, imagesForDelete: string[], product: Product) {
-    //     const fd = new FormData();
-    //     fd.append('product', JSON.stringify(product));
-    //     if (cover) {
-    //         fd.append('cover', cover);
-    //     }
-    //     if (imagesForDelete.length > 0) {
-    //         fd.append('imagesForDelete', JSON.stringify(imagesForDelete));
-    //     }
-    //     images.forEach((image: File) => {
-    //         fd.append('images', image);
-    //     });
-    //
-    //     return this.http.put('/api/products/' + product._id, fd, {
-    //         reportProgress: true,
-    //         observe: 'events'
-    //     });
-    // }
+        return this.http.post('/api/price-list', fd, {
+            reportProgress: true,
+            observe: 'events'
+        });
+    }
+
+    editPriceList(image: File, listImage: File, priceList: PriceList) {
+        const fd = new FormData();
+        fd.append('priceList', JSON.stringify(priceList));
+        if (image) {
+            fd.append('image', image);
+        }
+        if (listImage) {
+            fd.append('listImage', listImage);
+        }
+
+        return this.http.put('/api/price-list/' + priceList._id, fd, {
+            reportProgress: true,
+            observe: 'events'
+        });
+    }
 }

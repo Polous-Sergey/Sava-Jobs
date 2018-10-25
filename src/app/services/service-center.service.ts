@@ -7,7 +7,15 @@ export class ServiceCenterService {
     constructor(private http: HttpClient) {
     }
 
-    getAll() {
+    getAllPriceList() {
+        return this.http.get('/api/price-list-all');
+    }
+
+    getIphonePriceList() {
         return this.http.get('/api/price-list');
+    }
+
+    getPriceListById(id: string) {
+        return this.http.get('/api/price-list/' + id);
     }
 }

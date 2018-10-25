@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material';
+import {ActivatedRoute} from '@angular/router';
+import {ServiceCenterService} from '../../services/service-center.service';
+import {PriceList} from '../../shared/model/price-list';
 
 @Component({
     selector: 'app-price-list',
@@ -8,6 +11,8 @@ import {MatIconRegistry} from '@angular/material';
     styleUrls: ['./price-list.component.scss']
 })
 export class PriceListComponent implements OnInit {
+    id: string;
+    priceList: PriceList = new PriceList(null, 'iPhone', null, null, [], []);
     test = 'menu';
     data1 = [
         {
@@ -72,7 +77,10 @@ export class PriceListComponent implements OnInit {
         }
     ];
 
-    constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    constructor(private iconRegistry: MatIconRegistry,
+                private sanitizer: DomSanitizer,
+                private route: ActivatedRoute,
+                private serviceCenterService: ServiceCenterService) {
         iconRegistry.addSvgIcon(
             'ic1',
             sanitizer.bypassSecurityTrustResourceUrl('assets/icons/price-list/ic_01.svg'));
@@ -121,6 +129,14 @@ export class PriceListComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.id = this.route.snapshot.paramMap.get('id');
+        console.log(this.id);
+        this.serviceCenterService.getPriceListById(this.id).subscribe((res: any) => {
+            console.log(res);
+            if (res.success) {
+                this.priceList = res.data;
+            }
+        });
     }
 
 }

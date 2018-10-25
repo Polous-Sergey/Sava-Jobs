@@ -3,25 +3,42 @@ const fs = require('fs');
 const compress_images = require('compress-images');
 let Product = require('../models/products');
 
-// function priceListGet(req, res) {
-//     PriceList.find({}, ['model', 'image'], (err, data) => {
-//         if (err) {
-//             console.log(err);
-//             return res.json({
-//                 success: false,
-//                 err: err
-//             });
-//         }
-//
-//         res.json({
-//             success: true,
-//             data: data
-//         });
-//     });
-// }
-
 function priceListGet(req, res) {
+    PriceList.find({}, ['model', 'image'], (err, data) => {
+        if (err) {
+            console.log(err);
+            return res.json({
+                success: false,
+                err: err
+            });
+        }
+
+        res.json({
+            success: true,
+            data: data
+        });
+    });
+}
+
+function priceListGetAll(req, res) {
     PriceList.find({}, (err, data) => {
+        if (err) {
+            console.log(err);
+            return res.json({
+                success: false,
+                err: err
+            });
+        }
+
+        res.json({
+            success: true,
+            data: data
+        });
+    });
+}
+
+function priceListGetById(req, res) {
+    PriceList.findById(req.params.id, (err, data) => {
         if (err) {
             console.log(err);
             return res.json({
@@ -68,34 +85,26 @@ function priceListGet(req, res) {
 // listItem.save();
 
 
-async function productPost(req, res) {
-    let body = JSON.parse(req.body.product);
-    // let imageId = await writeAllImages(req.files.images ? req.files.images : []).catch((err) => {
-    //     return res.json({
-    //         success: false,
-    //         err: err
-    //     });
-    // });
-    // let coverId = await writeAllImages(req.files.cover ? req.files.cover : []).catch((err) => {
-    //     return res.json({
-    //         success: false,
-    //         err: err
-    //     });
-    // });
+function priceListPost(req, res) {
+    console.log(req.body);
+    let body = JSON.parse(req.body.priceList);
+    console.log(body);
+    console.log(req.files);
 
-    let imageId = await writeAllImages(req.files.images ? req.files.images : []);
-    let coverId = await writeAllImages(req.files.cover ? req.files.cover : []);
+    if (!req.files.image  || !req.files.listImage ) {
+        return res.json({
+            success: false,
+            err: 'no image'
+        });
+    }
 
-    let product = new Product();
-    product.title = body.title;
-    product.price = body.price;
-    product.description = body.description;
-    product.shortDescription = body.shortDescription;
-    // product.category = body.categoryId;
-    product.totalRating = body.totalRating;
-    product.images = imageId;
-    product.cover = coverId[0];
-    product.save((err, data) => {
+    let priceList = new PriceList();
+    priceList.model = body.model;
+    priceList.topItems = body.topItems;
+    priceList.categories = body.categories;
+    priceList.image = req.files.image[0].filename;
+    priceList.listImage = req.files.listImage[0].filename;
+    priceList.save((err, data) => {
         if (err) {
             return res.json({
                 success: false,
@@ -109,10 +118,10 @@ async function productPost(req, res) {
     });
 }
 
-function writeAllImages(files) {
-    return files.map((file) => {
-        return file.filename;
-    })
+// function writeAllImages(files) {
+//     return files.map((file) => {
+//         return file.filename;
+//     })
 //     return Promise.all(files.map((file) => {
 //         return new Promise((resolve, reject) => {
 //             compress_images(file.path, 'uploads/', {
@@ -139,48 +148,38 @@ function writeAllImages(files) {
 //                 });
 //         })
 //     }))
-}
+// }
 
-function productPut(req, res) {
-    Product.findById(req.params.id, (err, product) => {
-        if (err || !product) {
+function priceListPut(req, res) {
+    PriceList.findById(req.params.id, (err, priceList) => {
+        if (err || !priceList) {
             return res.json({
-                succes: false,
+                succes: false
             });
         }
 
         let filesForDelete = [];
         let filesForDeleteIfErr = [];
-        let body = JSON.parse(req.body.product);
-        if (req.body.imagesForDelete) {
-            let imagesForDelete = JSON.parse(req.body.imagesForDelete);
-            imagesForDelete.forEach((image) => {
-                let index = product.images.indexOf(image);
-                if (index === -1) {
-                    return;
-                }
-                filesForDelete.push(product.images[index]);
-                product.images.splice(index, 1);
-            })
+        let body = JSON.parse(req.body.priceList);
+
+        console.log(body);
+
+        if (req.files.image) {
+            filesForDelete.push(priceList.image);
+            filesForDeleteIfErr.push(req.files.image[0].filename);
+            priceList.image = req.files.image[0].filename;
+        }
+        if (req.files.listImage) {
+            filesForDelete.push(priceList.listImage);
+            filesForDeleteIfErr.push(req.files.listImage[0].filename);
+            priceList.listImage = req.files.listImage[0].filename;
         }
 
-        if (req.files.cover) {
-            filesForDelete.push(product.cover);
-            filesForDeleteIfErr.push(req.files.cover[0].filename);
-            product.cover = req.files.cover[0].filename;
-        }
-        if (req.files.images) {
-            product.images = [...product.images, ...writeAllImages(req.files.images)];
-            filesForDeleteIfErr = [...filesForDeleteIfErr, ...writeAllImages(req.files.images)];
-        }
+        priceList.model = body.model;
+        priceList.topItems = body.topItems;
+        priceList.categories = body.categories;
 
-        product.title = body.title;
-        product.price = body.price;
-        product.description = body.description;
-        product.shortDescription = body.shortDescription;
-        // product.category = body.categoryId;
-        product.totalRating = body.totalRating;
-        product.save((err, data) => {
+        priceList.save((err, data) => {
             if (err) {
                 deleteFiles(filesForDeleteIfErr);
                 return res.json({
@@ -227,7 +226,9 @@ function productDelete(req, res) {
 
 module.exports = {
     priceListGet,
-    productPost,
-    productPut,
+    priceListGetAll,
+    priceListGetById,
+    priceListPost,
+    priceListPut,
     productDelete
 };
