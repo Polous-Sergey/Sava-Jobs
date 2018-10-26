@@ -14,6 +14,8 @@ import {HttpEventType} from '@angular/common/http';
     styleUrls: ['./add-edit-price-list.component.scss']
 })
 export class AddEditPriceListComponent implements OnInit {
+    priceList: PriceList;
+
     image: File = null;
     listImage: File = null;
     previewImage: string = null;
@@ -22,17 +24,19 @@ export class AddEditPriceListComponent implements OnInit {
     edit: boolean;
 
     constructor(private dialogRef: MatDialogRef<AddEditPriceListComponent>,
-                @Inject(MAT_DIALOG_DATA) private priceList: PriceList,
+                @Inject(MAT_DIALOG_DATA) private data: any,
                 private adminServiceCenterService: AdminServiceCenterService,
                 private dialog: MatDialog) {
     }
 
     ngOnInit() {
-        if (!this.priceList) {
+        if (!this.data.data) {
             this.edit = false;
-            this.priceList = new PriceList(null, '', '', '', [], []);
+            this.priceList = new PriceList(null, this.data.type, '', '', '', [], []);
         } else {
             this.edit = true;
+            this.priceList = this.data.data;
+            // this.priceList.type = this.data.type
             this.previewImage = '/api/image/' + this.priceList.image;
             this.previewlistImage = '/api/image/' + this.priceList.listImage;
         }

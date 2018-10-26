@@ -6,14 +6,14 @@ import {AdminComponent} from './admin/admin.component';
 import {AdminStoreComponent} from './admin/admin-store/admin-store.component';
 import {AdminServiceComponent} from './admin/admin-service/admin-service.component';
 import {OrdersComponent} from './admin/orders/orders.component';
-import {IphoneComponent} from './service/iphone/iphone.component';
 import {PriceListComponent} from './service/price-list/price-list.component';
+import {DeviceListComponent} from './service/device-list/device-list.component';
 
 const routes: Routes = [
     {path: '', redirectTo: '/store', pathMatch: 'full'},
     {path: 'store', component: StoreComponent},
     {path: 'service', component: ServiceComponent},
-    {path: 'service/iphone', component: IphoneComponent},
+    {path: 'service/:type', component: DeviceListComponent},
     {path: 'service/price-list/:id', component: PriceListComponent},
     {
         path: 'admin', component: AdminComponent, children:

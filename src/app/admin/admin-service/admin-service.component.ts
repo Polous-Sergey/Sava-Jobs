@@ -22,6 +22,13 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
         'action'
     ];
 
+    selector = 0;
+    types = [
+        'iphone',
+        'ipad',
+        'watch',
+        'mac'
+    ];
     media;
     isLoadingResults = true;
     dataSource: MatTableDataSource<PriceList>;
@@ -47,10 +54,10 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
     ngAfterViewInit() {
         this.getProducts$
             .pipe(
-                startWith({}),
-                switchMap((params?) => {
+                startWith('iphone'),
+                switchMap((params) => {
                     this.isLoadingResults = true;
-                    return this.serviceCenterService.getAllPriceList();
+                    return this.serviceCenterService.getAllPriceList(params);
                 }),
                 map(data => {
                     this.isLoadingResults = false;
@@ -116,14 +123,14 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
             maxWidth: '98%',
             maxHeight: '90vh',
             width: '750px',
-            data: null
+            data: {data: null, type: this.types[this.selector]}
         };
         const dialogRef = this.dialog.open(AddEditPriceListComponent, confiq);
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 console.log(result);
-                this.getProducts$.emit();
+                this.getProducts$.emit(this.types[this.selector]);
             }
         });
     }
@@ -133,16 +140,21 @@ export class AdminServiceComponent implements OnInit, AfterViewInit {
             maxWidth: '98%',
             maxHeight: '90vh',
             width: '750px',
-            data: {...priceList},
+            data: {data: {...priceList}, type: this.types[this.selector]},
         };
         const dialogRef = this.dialog.open(AddEditPriceListComponent, confiq);
 
         dialogRef.afterClosed().subscribe(result => {
             if (result) {
                 console.log(result);
-                this.getProducts$.emit();
+                this.getProducts$.emit(this.types[this.selector]);
             }
         });
+    }
+
+    changeSelector(index) {
+        this.selector = index;
+        this.getProducts$.emit(this.types[index]);
     }
 }
 

@@ -1,0 +1,131 @@
+.main {
+  .content {
+    padding-top: 104px;
+    .main-image {
+      text-align: center;
+      img {
+        max-width: 100% !important;
+        height: auto;
+      }
+    }
+    .main-title {
+      text-align: center;
+      h1 {
+        font-weight: 300;
+      }
+      p {
+        font-weight: 300;
+      }
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      .grid-item {
+        margin: 0 15px;
+        flex: 0 0 calc(25% - 30px);
+        box-sizing: border-box;
+        max-width: calc(25% - 30px);
+        min-width: calc(25% - 30px);
+        h2 {
+          font-size: 32px;
+          line-height: 1.09375;
+          font-weight: 500;
+          letter-spacing: .011em;
+          font-family: SF-Pro, sans-serif;
+        }
+      }
+      @media (max-width: 400px) {
+        .grid-item {
+          margin: 0 5px;
+          flex: 0 0 calc(33.33% - 10px);
+          max-width: calc(33.34% - 10px);
+          min-width: calc(33.33% - 10px);
+        }
+      }
+      @media (min-width: 401px) and (max-width: 550px) {
+        .grid-item {
+          margin: 0 10px;
+          flex: 0 0 calc(33.33% - 20px);
+          max-width: calc(33.34% - 20px);
+          min-width: calc(33.33% - 20px);
+        }
+      }
+      @media (min-width: 550px) and (max-width: 599px) {
+        .grid-item {
+          margin: 0 10px;
+          flex: 0 0 calc(25% - 20px);
+          max-width: calc(25% - 20px);
+          min-width: calc(25% - 20px);
+        }
+      }
+      @media (min-width: 599px) and (max-width: 959px) {
+        .grid-item {
+          margin: 0 10px;
+          flex: 0 0 calc(25% - 20px);
+          max-width: calc(25% - 20px);
+          min-width: calc(25% - 20px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 959px) {
+  .main-title {
+    h1 {
+      font-size: 28px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
+  .grid-item {
+    h2 {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (min-width: 960px) and (max-width: 1279px) {
+  .main-title {
+    h1 {
+      font-size: 34px;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  .grid-item {
+    h2 {
+      font-size: 28px;
+    }
+  }
+}
+
+@media (min-width: 1280px) {
+  .main-title {
+    h1 {
+      font-size: 40px;
+    }
+    p {
+      font-size: 20px;
+    }
+  }
+  .grid-item {
+    h2 {
+      font-size: 32px;
+    }
+  }
+}
+
+.mains {
+  .content {
+  }
+  .regular {
+    padding-top: 50px;
+    max-width: 780px;
+    .regular-item {
+      margin-bottom: 50px;
+    }
+  }
+}

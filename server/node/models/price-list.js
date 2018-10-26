@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const priceListSchema = new mongoose.Schema({
+    type: {type: String, required: true},
     model: {type: String, required: true},
     image: {type: String, required: true},
     listImage: {type: String, required: true},

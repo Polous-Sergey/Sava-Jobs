@@ -7,12 +7,12 @@ export class ServiceCenterService {
     constructor(private http: HttpClient) {
     }
 
-    getAllPriceList() {
-        return this.http.get('/api/price-list-all');
+    getAllPriceList(params) {
+        return this.http.get('/api/price-list-all?type=' + params);
     }
 
-    getIphonePriceList() {
-        return this.http.get('/api/price-list');
+    getDevices(type: string) {
+        return this.http.get('/api/price-list?type=' + type);
     }
 
     getPriceListById(id: string) {

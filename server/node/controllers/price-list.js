@@ -4,7 +4,12 @@ const compress_images = require('compress-images');
 let Product = require('../models/products');
 
 function priceListGet(req, res) {
-    PriceList.find({}, ['model', 'image'], (err, data) => {
+    if (!req.query.type) {
+        return res.json({
+            success: false
+        });
+    }
+    PriceList.find({type: req.query.type}, ['model', 'image'], (err, data) => {
         if (err) {
             console.log(err);
             return res.json({
@@ -21,7 +26,13 @@ function priceListGet(req, res) {
 }
 
 function priceListGetAll(req, res) {
-    PriceList.find({}, (err, data) => {
+    if (!req.query.type) {
+        return res.json({
+            success: false
+        });
+    }
+    PriceList.find({type: req.query.type}, (err, data) => {
+    // PriceList.find({}, (err, data) => {
         if (err) {
             console.log(err);
             return res.json({
@@ -91,7 +102,7 @@ function priceListPost(req, res) {
     console.log(body);
     console.log(req.files);
 
-    if (!req.files.image  || !req.files.listImage ) {
+    if (!req.files.image || !req.files.listImage) {
         return res.json({
             success: false,
             err: 'no image'
@@ -99,6 +110,7 @@ function priceListPost(req, res) {
     }
 
     let priceList = new PriceList();
+    priceList.type = body.type;
     priceList.model = body.model;
     priceList.topItems = body.topItems;
     priceList.categories = body.categories;
@@ -176,6 +188,7 @@ function priceListPut(req, res) {
         }
 
         priceList.model = body.model;
+        // priceList.type = body.type;
         priceList.topItems = body.topItems;
         priceList.categories = body.categories;
 

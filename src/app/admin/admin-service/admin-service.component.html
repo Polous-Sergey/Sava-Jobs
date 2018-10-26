@@ -1,5 +1,46 @@
 <div fxLayoutAlign="center none">
     <div fxFlex="98%" class="admin-service">
+
+        <div fxLayout="column" fxLayoutAlign=" center">
+            <div class="row apple-grid" fxLayoutAlign="center none">
+                <div class="grid-item" fxFlex="25%" fxFlex.xs="50%">
+                    <a (click)="changeSelector(0)">
+                        <div class="img-cont">
+                            <img src="assets/icons/apple/iphone.png" alt="" width="68" class="img" height="68">
+                        </div>
+                        <span class="item-title">iPhone</span>
+                    </a>
+                </div>
+                <div class="grid-item" fxFlex="25%" fxFlex.xs="50%">
+                    <a (click)="changeSelector(1)">
+                        <div class="img-cont">
+                            <img src="assets/icons/apple/ipad.png" alt="" width="68" class="img" height="68">
+                        </div>
+                        <span class="aitem-title">iPad</span>
+                    </a>
+                </div>
+                <div class="grid-item" fxFlex="25%" fxFlex.xs="50%">
+                    <a (click)="changeSelector(2)">
+                        <div class="img-cont">
+                            <img src="assets/icons/apple/apple_watch.png" alt="" width="68" class="img" height="68">
+                        </div>
+                        <span class="item-title">Apple Watch</span>
+                    </a>
+                </div>
+                <div class="grid-item" fxFlex="25%" fxFlex.xs="50%">
+                    <a (click)="changeSelector(3)">
+                        <div class="img-cont">
+                            <img src="assets/icons/apple/macbookpro.png" alt="" width="68" class="img" height="68">
+                        </div>
+                        <span class="item-title">Macbook</span>
+                    </a>
+                </div>
+                <div class="selector"
+                     [ngClass]="{'iphone': selector === 0, 'ipad': selector === 1,
+                     'watch': selector === 2, 'mac': selector === 3}"></div>
+            </div>
+        </div>
+
         <div fxLayout="row" fxLayoutAlign="space-between center">
             <mat-form-field class="filter">
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">

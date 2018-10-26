@@ -12,7 +12,7 @@ import {PriceList} from '../../shared/model/price-list';
 })
 export class PriceListComponent implements OnInit {
     id: string;
-    priceList: PriceList = new PriceList(null, 'iPhone', null, null, [], []);
+    priceList: PriceList = new PriceList(null, '', 'iPhone', null, null, [], []);
     test = 'menu';
     data1 = [
         {
