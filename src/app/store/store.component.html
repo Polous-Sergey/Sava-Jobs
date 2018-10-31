@@ -1,14 +1,17 @@
 <app-store-header></app-store-header>
-<div class="text">
-    <h2>Нужно добавить какой-то текст</h2>
-    <p>А то стремно смотрится, можно с картинки сюда перетащить а туда чтото типа гарантия 3 месб лучшие айфоны и т. д.</p>
+<!--<div class="text">-->
+    <!--<h2>Нужно добавить какой-то текст</h2>-->
+    <!--<p>А то стремно смотрится, можно с картинки сюда перетащить а туда чтото типа гарантия 3 месб лучшие айфоны и т. д.</p>-->
+<!--</div>-->
+
+<div class="content">
+    <div fxLayoutAlign="center none">
+        <section class="cards">
+            <app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"
+                      (clickDetail)="showDetail($event)"></app-card>
+        </section>
+    </div>
 </div>
 
-<div fxLayoutAlign="center none">
-    <section class="cards">
-        <app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"
-                  (clickDetail)="showDetail($event)"></app-card>
-    </section>
-</div>
 
 <app-footer></app-footer>

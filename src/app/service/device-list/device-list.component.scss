@@ -27,11 +27,10 @@
         max-width: calc(25% - 30px);
         min-width: calc(25% - 30px);
         h2 {
-          font-size: 32px;
-          line-height: 1.09375;
-          font-weight: 500;
-          letter-spacing: .011em;
-          font-family: SF-Pro, sans-serif;
+          margin: 10px 0 15px 0;
+          text-align: center;
+          font-family: "Myriad Set Pro", sans-serif;
+          font-weight: 400;
         }
       }
       @media (max-width: 400px) {
@@ -67,6 +66,23 @@
         }
       }
     }
+    .regular {
+      padding-top: 50px;
+      .regular-item {
+        margin-bottom: 50px;
+        h2 {
+          font-size: 26px;
+          font-family: "Myriad Set Pro","sans-serif";
+          font-weight: 200;
+        }
+        p {
+          font-size: 18px;
+          font-family: "Myriad Set Pro","sans-serif";
+          font-weight: 400;
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 
@@ -81,7 +97,7 @@
   }
   .grid-item {
     h2 {
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 }
@@ -97,7 +113,7 @@
   }
   .grid-item {
     h2 {
-      font-size: 28px;
+      font-size: 20px;
     }
   }
 }
@@ -113,19 +129,7 @@
   }
   .grid-item {
     h2 {
-      font-size: 32px;
-    }
-  }
-}
-
-.mains {
-  .content {
-  }
-  .regular {
-    padding-top: 50px;
-    max-width: 780px;
-    .regular-item {
-      margin-bottom: 50px;
+      font-size: 22px;
     }
   }
 }
