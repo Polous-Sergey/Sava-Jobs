@@ -2,57 +2,58 @@
   margin-top: 50px;
 }
 
-
-
-
-
-$small: 600px;
-$large: 1024px;
 .text {
   text-align: center;
   padding: 60px;
 }
 
-@mixin respond-to($media) {
-  @if $media == handhelds {
-    @media only screen and (max-width: $small) {
-      @content;
-    }
-  } @else if $media == medium-screens {
-    @media only screen and (min-width: $small + 1) and (max-width: $large - 1) {
-      @content;
-    }
-  } @else if $media == wide-screens {
-    @media only screen and (min-width: $large) {
-      @content;
-    }
-  }
-}
-
-.card {
-  width: 400px;
-  margin: 5px;
-  @include respond-to(handhelds) {
-    width: calc(100% - 10px)
-  }
-  @include respond-to(medium-screens) {
-    width: calc(50% - 10px)
-  }
-  @include respond-to(wide-screens) {
-    width: calc(25% - 10px)
-  }
-}
-
 .cards {
   display: flex;
   flex-wrap: wrap;
-  @include respond-to(handhelds) {
-    max-width: 410px
+  margin-bottom: 30px;
+  .card {
+    margin: 0 15px;
+    flex: 0 0 calc(25% - 30px);
+    box-sizing: border-box;
+    max-width: calc(25% - 30px);
+    min-width: calc(25% - 30px);
+    h2 {
+      margin: 10px 0 15px 0;
+      text-align: center;
+      font-family: "Myriad Set Pro", sans-serif;
+      font-weight: 400;
+    }
   }
-  @include respond-to(medium-screens) {
-    max-width: 820px
+  @media (max-width: 400px) {
+    .card {
+      margin: 0 5px;
+      flex: 0 0 calc(33.33% - 10px);
+      max-width: calc(33.34% - 10px);
+      min-width: calc(33.33% - 10px);
+    }
   }
-  @include respond-to(wide-screens) {
-    max-width: 1640px
+  @media (min-width: 401px) and (max-width: 550px) {
+    .card {
+      margin: 0 10px;
+      flex: 0 0 calc(33.33% - 20px);
+      max-width: calc(33.34% - 20px);
+      min-width: calc(33.33% - 20px);
+    }
+  }
+  @media (min-width: 550px) and (max-width: 599px) {
+    .card {
+      margin: 0 10px;
+      flex: 0 0 calc(25% - 20px);
+      max-width: calc(25% - 20px);
+      min-width: calc(25% - 20px);
+    }
+  }
+  @media (min-width: 599px) and (max-width: 959px) {
+    .card {
+      margin: 0 10px;
+      flex: 0 0 calc(25% - 20px);
+      max-width: calc(25% - 20px);
+      min-width: calc(25% - 20px);
+    }
   }
 }

@@ -71,6 +71,7 @@ export class AdminStoreComponent implements OnInit, AfterViewInit {
     }
 
     applyFilter(filterValue: string) {
+      console.log(this.dataSource.filter);
         this.dataSource.filter = filterValue.trim().toLowerCase();
 
         if (this.dataSource.paginator) {

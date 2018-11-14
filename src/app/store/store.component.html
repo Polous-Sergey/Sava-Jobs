@@ -6,7 +6,11 @@
 
 <div class="content">
     <div fxLayoutAlign="center none">
-        <section class="cards">
+        <!--<section class="cards">-->
+            <!--<app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"-->
+                      <!--(clickDetail)="showDetail($event)"></app-card>-->
+        <!--</section>-->
+      <section class="cards">
             <app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"
                       (clickDetail)="showDetail($event)"></app-card>
         </section>

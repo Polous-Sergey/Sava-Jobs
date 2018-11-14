@@ -40,6 +40,7 @@ import {AddEditPriceListComponent} from './shared/modal/add-edit-price-list/add-
 import {AddEditPriceListCategoryComponent} from './shared/modal/add-edit-price-list-category/add-edit-price-list-category.component';
 import {AddEditPriceListItemComponent} from './shared/modal/add-edit-price-list-item/add-edit-price-list-item.component';
 import {DeviceListComponent} from './service/device-list/device-list.component';
+import {SearchService} from './services/search.service';
 
 @NgModule({
     declarations: [
@@ -101,7 +102,8 @@ import {DeviceListComponent} from './service/device-list/device-list.component';
         StoreService,
         AdminStoreService,
         ServiceCenterService,
-        AdminServiceCenterService
+        AdminServiceCenterService,
+        SearchService
     ],
     bootstrap: [AppComponent]
 })

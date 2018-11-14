@@ -24,6 +24,7 @@ const ctrlProducts = require('../controllers/products');
 const ctrlCategory = require('../controllers/category');
 const ctrlImage = require('../controllers/image');
 const ctrlPriceList = require('../controllers/price-list');
+const ctrlSearch = require('../controllers/search');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -48,12 +49,14 @@ router.delete('/category', ctrlCategory.categoryDelete);
 // image
 router.get('/image/:id', ctrlImage.imageGetByID);
 
-//price-list
+// price-list
 router.get('/price-list', ctrlPriceList.priceListGet);
 router.get('/price-list-all', ctrlPriceList.priceListGetAll);
 router.get('/price-list/:id', ctrlPriceList.priceListGetById);
 router.post('/price-list', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'listImage', maxCount: 1 }]), ctrlPriceList.priceListPost);
 router.put('/price-list/:id', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'listImage', maxCount: 1 }]), ctrlPriceList.priceListPut);
 
+// search
+router.get('/search', ctrlSearch.searchGet);
 
 module.exports = router;
