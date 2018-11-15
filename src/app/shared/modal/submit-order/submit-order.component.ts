@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
+import {Product} from '../../model/product';
 
 @Component({
   selector: 'app-submit-order',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitOrderComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(private dialogRef: MatDialogRef<SubmitOrderComponent>,
+              @Inject(MAT_DIALOG_DATA) public products: Product) {
   }
 
+  ngOnInit() {
+    console.log(this.products);
+  }
+
+  submitClick() {
+    this.dialogRef.close();
+  }
+
+  close(): void {
+    this.dialogRef.close();
+  }
 }

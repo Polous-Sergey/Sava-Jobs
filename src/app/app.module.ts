@@ -41,71 +41,73 @@ import {AddEditPriceListCategoryComponent} from './shared/modal/add-edit-price-l
 import {AddEditPriceListItemComponent} from './shared/modal/add-edit-price-list-item/add-edit-price-list-item.component';
 import {DeviceListComponent} from './service/device-list/device-list.component';
 import {SearchService} from './services/search.service';
+import {SessionStorageService} from './services/session-storage.service';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HeaderComponent,
-        FooterComponent,
-        StoreComponent,
-        CardComponent,
-        StoreHeaderComponent,
-        ServiceComponent,
-        CardDetailComponent,
-        ServiceHeaderComponent,
-        MediaMenuComponent,
-        SubmitOrderComponent,
-        AdminComponent,
-        AdminHeaderComponent,
-        AdminStoreComponent,
-        AdminServiceComponent,
-        OrdersComponent,
-        CardPrevievComponent,
-        AddEditProductComponent,
-        EditProductComponent,
-        DeviceListComponent,
-        PriceListComponent,
-        AddEditPriceListComponent,
-        AddEditPriceListCategoryComponent,
-        AddEditPriceListItemComponent
-    ],
-    entryComponents: [
-        CardDetailComponent,
-        MediaMenuComponent,
-        SubmitOrderComponent,
-        CardPrevievComponent,
-        AddEditProductComponent,
-        EditProductComponent,
-        AddEditPriceListComponent,
-        AddEditPriceListCategoryComponent,
-        AddEditPriceListItemComponent
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MaterialModule,
-        HttpClientModule,
-        FlexLayoutModule,
-        LayoutModule,
-        AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyDfiKM5cIk8zisr3nUa0dro7qH4A3WrgQ4'
-        }),
-        GalleryModule.forRoot(),
-        LightboxModule.forRoot({
-            panelClass: 'fullscreen'
-        }),
-        GallerizeModule
-    ],
-    providers: [
-        StoreService,
-        AdminStoreService,
-        ServiceCenterService,
-        AdminServiceCenterService,
-        SearchService
-    ],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    StoreComponent,
+    CardComponent,
+    StoreHeaderComponent,
+    ServiceComponent,
+    CardDetailComponent,
+    ServiceHeaderComponent,
+    MediaMenuComponent,
+    SubmitOrderComponent,
+    AdminComponent,
+    AdminHeaderComponent,
+    AdminStoreComponent,
+    AdminServiceComponent,
+    OrdersComponent,
+    CardPrevievComponent,
+    AddEditProductComponent,
+    EditProductComponent,
+    DeviceListComponent,
+    PriceListComponent,
+    AddEditPriceListComponent,
+    AddEditPriceListCategoryComponent,
+    AddEditPriceListItemComponent
+  ],
+  entryComponents: [
+    CardDetailComponent,
+    MediaMenuComponent,
+    SubmitOrderComponent,
+    CardPrevievComponent,
+    AddEditProductComponent,
+    EditProductComponent,
+    AddEditPriceListComponent,
+    AddEditPriceListCategoryComponent,
+    AddEditPriceListItemComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    HttpClientModule,
+    FlexLayoutModule,
+    LayoutModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDfiKM5cIk8zisr3nUa0dro7qH4A3WrgQ4'
+    }),
+    GalleryModule.forRoot(),
+    LightboxModule.forRoot({
+      panelClass: 'fullscreen'
+    }),
+    GallerizeModule
+  ],
+  providers: [
+    StoreService,
+    AdminStoreService,
+    ServiceCenterService,
+    AdminServiceCenterService,
+    SearchService,
+    SessionStorageService
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }

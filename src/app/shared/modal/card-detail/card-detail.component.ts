@@ -34,7 +34,7 @@ export class CardDetailComponent implements OnInit {
 
     constructor(private dialogRef: MatDialogRef<CardDetailComponent>,
                 private breakpointObserver: BreakpointObserver,
-                @Inject(MAT_DIALOG_DATA) private data: Product) {
+                @Inject(MAT_DIALOG_DATA) public data: Product) {
     }
 
     ngOnInit() {

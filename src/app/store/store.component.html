@@ -12,10 +12,10 @@
         <!--</section>-->
       <section class="cards">
             <app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"
-                      (clickDetail)="showDetail($event)"></app-card>
+                      (clickDetail)="showDetail($event)"
+                      (clickBye)="showOrderPage($event)"></app-card>
         </section>
     </div>
 </div>
-
 
 <app-footer></app-footer>

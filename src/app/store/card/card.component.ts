@@ -8,6 +8,7 @@ import {Product} from '../../shared/model/product';
 })
 export class CardComponent implements OnInit {
     @Output() clickDetail = new EventEmitter<any>();
+    @Output() clickBye = new EventEmitter<any>();
     @Input() cardData: Product;
 
     constructor() {
@@ -21,7 +22,7 @@ export class CardComponent implements OnInit {
     }
 
     bye() {
-        console.log(this.cardData);
+      this.clickBye.emit(this.cardData);
     }
 
 }
