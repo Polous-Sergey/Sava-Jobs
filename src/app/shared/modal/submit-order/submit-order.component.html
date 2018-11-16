@@ -1,49 +1,55 @@
 <h2 mat-dialog-title>Ваш заказ:</h2>
 <mat-dialog-content class="mat-typography">
-  <h3>Develop across all platforms</h3>
+  <mat-divider style="margin-bottom: 10px"></mat-divider>
   <div fxLayout="column">
     <div *ngFor="let product of products">
-      {{product.title}}
+      <h4>{{product.title}}</h4>
     </div>
   </div>
+  <mat-divider></mat-divider>
   <p>
-    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-    bred for hunting.
+    Пожалуйста, оставьте контактные данные, чтобы наш менеджер мог связаться с вами и уточнить детали заказа.
+    Оплатить и забрать товар можно в нашем офисе на перю Харьковский, 6, второй этаж.
   </p>
+  <h3>
+    График работы офиса:
+  </h3>
+  <p>
+    Будние дни: с 10:00 до 20:00<br>
+    Выходные: с 12:00 до 17:00<br>
+    Понедельник: выходной
+  </p>
+
+  <!--<mat-list>-->
+    <!--<mat-list-item>-->
+      <!--<mat-icon matListIcon>place</mat-icon>-->
+      <!--<p matLine> переулок Харьковский 6, 2 этаж </p>-->
+      <!--<p matLine> Ахтырка, Сумская область, Украина </p>-->
+    <!--</mat-list-item>-->
+    <!--<mat-list-item>-->
+      <!--<mat-icon matListIcon>access_time</mat-icon>-->
+      <!--<p matLine> Пн: Выходной </p>-->
+      <!--<p matLine> Вт - Пт: 10:00 - 17:00 </p>-->
+      <!--<p matLine> Сб - Нд: 10:00 - 16:00 </p>-->
+    <!--</mat-list-item>-->
+  <!--</mat-list>-->
+
+  <form fxLayout="column">
+
+    <mat-form-field>
+      <input matInput placeholder="Name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <span matPrefix>+38 &nbsp;</span>
+      <input type="tel" matInput placeholder="Telephone">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+
+  </form>
+
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
+  <button mat-button mat-dialog-close>Отмена</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Оформить заказ</button>
 </mat-dialog-actions>
-
-
-  <mat-card-header>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-
-  <mat-card-content>
-
-    <form fxLayout="column">
-
-      <mat-form-field>
-        <input matInput placeholder="Name">
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width">
-        <span matPrefix>+38 &nbsp;</span>
-        <input type="tel" matInput placeholder="Telephone">
-        <mat-icon matSuffix>mode_edit</mat-icon>
-      </mat-form-field>
-
-    </form>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-
-
-
-
