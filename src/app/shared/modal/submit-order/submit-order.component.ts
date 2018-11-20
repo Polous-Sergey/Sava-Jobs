@@ -8,6 +8,7 @@ import {Product} from '../../model/product';
   styleUrls: ['./submit-order.component.scss']
 })
 export class SubmitOrderComponent implements OnInit {
+  valid = true;
 
   constructor(private dialogRef: MatDialogRef<SubmitOrderComponent>,
               @Inject(MAT_DIALOG_DATA) public products: Product) {
@@ -24,4 +25,5 @@ export class SubmitOrderComponent implements OnInit {
   close(): void {
     this.dialogRef.close();
   }
+
 }

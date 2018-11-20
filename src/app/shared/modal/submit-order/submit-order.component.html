@@ -9,7 +9,7 @@
   <mat-divider></mat-divider>
   <p>
     Пожалуйста, оставьте контактные данные, чтобы наш менеджер мог связаться с вами и уточнить детали заказа.
-    Оплатить и забрать товар можно в нашем офисе на перю Харьковский, 6, второй этаж.
+    Оплатить и забрать товар можно в нашем офисе на пер. Харьковский, 6.
   </p>
   <h3>
     График работы офиса:
@@ -20,29 +20,15 @@
     Понедельник: выходной
   </p>
 
-  <!--<mat-list>-->
-    <!--<mat-list-item>-->
-      <!--<mat-icon matListIcon>place</mat-icon>-->
-      <!--<p matLine> переулок Харьковский 6, 2 этаж </p>-->
-      <!--<p matLine> Ахтырка, Сумская область, Украина </p>-->
-    <!--</mat-list-item>-->
-    <!--<mat-list-item>-->
-      <!--<mat-icon matListIcon>access_time</mat-icon>-->
-      <!--<p matLine> Пн: Выходной </p>-->
-      <!--<p matLine> Вт - Пт: 10:00 - 17:00 </p>-->
-      <!--<p matLine> Сб - Нд: 10:00 - 16:00 </p>-->
-    <!--</mat-list-item>-->
-  <!--</mat-list>-->
-
   <form fxLayout="column">
 
     <mat-form-field>
-      <input matInput placeholder="Name">
+      <input matInput placeholder="Ваше имя">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <span matPrefix>+38 &nbsp;</span>
-      <input type="tel" matInput placeholder="Telephone">
+      <input type="tel" matInput placeholder="Номер телефона">
       <mat-icon matSuffix>mode_edit</mat-icon>
     </mat-form-field>
 
@@ -51,5 +37,5 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Отмена</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Оформить заказ</button>
+  <button mat-button [mat-dialog-close]="true" [disabled]="valid">Оформить заказ</button>
 </mat-dialog-actions>
