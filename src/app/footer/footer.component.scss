@@ -17,7 +17,7 @@
 
   .map-container {
     width: 100%;
-    height: 500px;
+    height: 450px;
   }
 
   .map {
@@ -32,15 +32,26 @@
 
   .unde-footer {
     background-color: #181A1E;
-  }
-
-  .footer-menu {
-    a {
-      color: white;
+    .social {
+      height: 200px;
+      div {
+        margin: 0 5px;
+      }
+      mat-icon {
+        margin: 0 5px;
+      }
     }
-  }
-
-  .copyring {
-    text-align: center;
+    .footer-menu {
+      a {
+        color: white;
+        font-size: 14px;
+        margin: 0 15px;
+      }
+    }
+    .copyring {
+      padding: 20px 0;
+      text-align: center;
+      font-size: 10px;
+    }
   }
 }

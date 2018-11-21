@@ -3,42 +3,42 @@
         <div fxLayoutAlign="center none">
             <div class="price-list-header">
                 <h1>{{priceList.model}}</h1>
-                <div fxLayout="row">
-                    <div class="image" fxHide.lt-lg fxFlex="35%">
+                <div fxLayout="row" fxLayoutAlign="center none">
+                    <div class="image" fxFlex="60%">
                         <img [src]="'/api/image/' + priceList.listImage" width="100%">
                     </div>
-                    <div class="text" fxLayoutAlign=" center" fxFlex="65%">
+                    <!--<div class="text" fxLayoutAlign=" center" fxFlex="65%">-->
 
 
-                        <div class="background">
-                            <!--<div class="grid">-->
-                            <!--<a fxFlex="0 1 calc(25% - 40px)" routerLink="/service/price-list/12" fxFlex.xs="0 1 calc(50% - 30px)" *ngFor="let iphone of iphones"-->
-                            <!--class="grid-item" fxLayout="column">-->
-                            <!--<img [src]="iphone" width="100%">-->
-                            <!--iPhone XS-->
-                            <!--</a>-->
-                            <!--</div>-->
-                            <mat-list class="grid">
-                                <mat-list-item class="grid-item" fxFlex="33.3%" fxFlex.lt-lg="50%"
-                                               *ngFor="let data of data1">
-                                    <mat-icon matListIcon [svgIcon]="data.icon"></mat-icon>
-                                    <a matLine [matMenuTriggerFor]="menu">{{data.text}}</a>
-                                </mat-list-item>
-                            </mat-list>
+                        <!--<div class="background">-->
+                            <!--&lt;!&ndash;<div class="grid">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a fxFlex="0 1 calc(25% - 40px)" routerLink="/service/price-list/12" fxFlex.xs="0 1 calc(50% - 30px)" *ngFor="let iphone of iphones"&ndash;&gt;-->
+                            <!--&lt;!&ndash;class="grid-item" fxLayout="column">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<img [src]="iphone" width="100%">&ndash;&gt;-->
+                            <!--&lt;!&ndash;iPhone XS&ndash;&gt;-->
+                            <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                            <!--<mat-list class="grid">-->
+                                <!--<mat-list-item class="grid-item" fxFlex="33.3%" fxFlex.lt-lg="50%"-->
+                                               <!--*ngFor="let data of data1">-->
+                                    <!--<mat-icon matListIcon [svgIcon]="data.icon"></mat-icon>-->
+                                    <!--<a matLine [matMenuTriggerFor]="menu">{{data.text}}</a>-->
+                                <!--</mat-list-item>-->
+                            <!--</mat-list>-->
 
-                            <mat-menu #menu="matMenu">
-                                <button mat-menu-item>Item 1</button>
-                                <button mat-menu-item>Item 2</button>
-                            </mat-menu>
-                            <!--<ul>-->
-                            <!--<li *ngFor="let data of data1">-->
-                            <!--<mat-icon [svgIcon]="data.icon"></mat-icon>-->
-                            <!--<a>{{data.text}}</a>-->
-                            <!--</li>-->
-                            <!--</ul>-->
-                        </div>
+                            <!--<mat-menu #menu="matMenu">-->
+                                <!--<button mat-menu-item>Item 1</button>-->
+                                <!--<button mat-menu-item>Item 2</button>-->
+                            <!--</mat-menu>-->
+                            <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<li *ngFor="let data of data1">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<mat-icon [svgIcon]="data.icon"></mat-icon>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a>{{data.text}}</a>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                        <!--</div>-->
 
-                    </div>
+                    <!--</div>-->
                 </div>
             </div>
         </div>

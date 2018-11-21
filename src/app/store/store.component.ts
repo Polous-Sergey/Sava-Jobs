@@ -61,8 +61,7 @@ export class StoreComponent implements OnInit {
       maxWidth: '98%',
       maxHeight: '90vh',
       width: '400px',
-      data: this.shopingList,
-      panelClass: 'dialog-detail'
+      data: this.shopingList
     };
     const dialogRef = this.dialog.open(SubmitOrderComponent, confiq);
 
