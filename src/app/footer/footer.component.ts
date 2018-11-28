@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MatIconRegistry} from "@angular/material";
-import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
     selector: 'app-footer',
@@ -98,24 +96,6 @@ export class FooterComponent implements OnInit {
         fontWeight: 'bold',
         text: 'Sava Jobs',
     };
-
-    mapIcon = '../../assets/icons/baseline-place.svg';
-
-
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
-      'facebook-brands',
-      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/social/facebook-brands.svg'));
-    iconRegistry.addSvgIcon(
-      'finstagram-brands',
-      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/social/instagram-brands.svg'));
-    iconRegistry.addSvgIcon(
-      'telegram-plane-brands',
-      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/social/telegram-plane-brands.svg'));
-    iconRegistry.addSvgIcon(
-      'youtube-brands',
-      sanitizer.bypassSecurityTrustResourceUrl('/assets/icons/social/youtube-brands.svg'));
-  }
 
     ngOnInit() {
     }

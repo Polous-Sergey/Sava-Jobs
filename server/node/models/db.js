@@ -49,3 +49,4 @@ require('./products');
 require('./category');
 require('./image');
 require('./price-list');
+require('./order');

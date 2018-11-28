@@ -1,51 +1,55 @@
 <mat-toolbar class="header-main" fxLayoutAlign="center none">
-  <div [fxFlex.gt-md]="70" fxFlex="90" fxLayoutAlign="space-between center">
-    <div fxLayout="row" fxLayoutAlign="space-between center">
-      <div class="logo">
-        <h3>Sava Jobs</h3>
-      </div>
-      <div class="icons" *ngIf="media">
-        <i class="material-icons">
-          subscriptions
-        </i>
-        <i class="material-icons">
-          subscriptions
-        </i>
-        <i class="material-icons">
-          subscriptions
-        </i>
-      </div>
-      <div class="filter">
-        <mat-form-field>
-          <input matInput placeholder="Search" #input>
-        </mat-form-field>
-        <div class="search-dropdown-menu" *ngIf="searchFocuse">
-          <mat-list>
-            <h3 mat-subheader>Услуги по ремонту:</h3>
-            <mat-list-item *ngFor="let item of searchData.item">
-              <h4 mat-line>{{item}}</h4>
-              <!--<p mat-line> {{folder.updated | date}} </p>-->
-            </mat-list-item>
-            <mat-divider></mat-divider>
-            <h3 mat-subheader>Товары</h3>
-            <mat-list-item *ngFor="let product of searchData.products">
-              <h4 mat-line>{{product}}</h4>
-              <!--<p mat-line> {{note.updated | date}} </p>-->
-            </mat-list-item>
-          </mat-list>
-        </div>
-      </div>
+    <div [fxFlex.gt-md]="70" fxFlex="90" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="logo">
+                <h3>Sava Jobs</h3>
+            </div>
+            <div class="icons" *ngIf="media">
+                <i>
+                    <mat-icon svgIcon="facebook-brands"></mat-icon>
+                </i>
+                <i>
+                    <mat-icon svgIcon="finstagram-brands"></mat-icon>
+                </i>
+                <i>
+                    <mat-icon svgIcon="telegram-plane-brands"></mat-icon>
+                </i>
+                <i>
+                    <mat-icon svgIcon="youtube-brands"></mat-icon>
+                </i>
+            </div>
 
+
+        </div>
+
+        <div class="filter" style="width: 100%; margin-left: 20px" >
+            <mat-form-field style="width: 100%">
+                <input matInput placeholder="Поиск" #input>
+            </mat-form-field>
+            <div class="search-dropdown-menu" *ngIf="searchFocuse">
+                <mat-list>
+                    <h3 mat-subheader>Услуги по ремонту:</h3>
+                    <mat-list-item *ngFor="let item of searchData.item">
+                        <h4 mat-line>{{item}}</h4>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                    <h3 mat-subheader>Товары</h3>
+                    <mat-list-item *ngFor="let product of searchData.products">
+                        <h4 mat-line>{{product}}</h4>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </div>
+
+        <mat-nav-list *ngIf="media" fxLayout="row" fxLayoutAlign="center center">
+            <a mat-list-item routerLink="/service"> Ремонт </a>
+            <a mat-list-item routerLink="/store"> Магазин </a>
+            <a mat-list-item routerLink="/store"> О нас </a>
+        </mat-nav-list>
+        <div *ngIf="!media">
+            <button mat-icon-button (click)="mediaMenu()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
     </div>
-    <mat-nav-list *ngIf="media" fxLayout="row" fxLayoutAlign="center center">
-      <a mat-list-item routerLink="/service"> Ремонт </a>
-      <a mat-list-item routerLink="/store"> Магазин </a>
-      <a mat-list-item routerLink="/store"> О нас </a>
-    </mat-nav-list>
-    <div *ngIf="!media">
-      <button mat-icon-button (click)="mediaMenu()">
-        <mat-icon>menu</mat-icon>
-      </button>
-    </div>
-  </div>
 </mat-toolbar>

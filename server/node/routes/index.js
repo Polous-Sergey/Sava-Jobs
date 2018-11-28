@@ -25,6 +25,7 @@ const ctrlCategory = require('../controllers/category');
 const ctrlImage = require('../controllers/image');
 const ctrlPriceList = require('../controllers/price-list');
 const ctrlSearch = require('../controllers/search');
+const ctrlOrder = require('../controllers/order');
 
 // profile
 router.get('/profile', auth, ctrlProfile.profileRead);
@@ -58,5 +59,11 @@ router.put('/price-list/:id', upload.fields([{ name: 'image', maxCount: 1 }, { n
 
 // search
 router.get('/search', ctrlSearch.searchGet);
+
+// order
+router.get('/order', ctrlOrder.orderGet);
+router.post('/order', ctrlOrder.orderPost);
+router.put('/order', ctrlOrder.orderPut);
+router.delete('/order', ctrlOrder.orderDelete);
 
 module.exports = router;

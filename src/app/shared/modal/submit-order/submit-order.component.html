@@ -2,11 +2,17 @@
 <mat-dialog-content class="mat-typography">
   <mat-divider style="margin-bottom: 10px"></mat-divider>
   <div fxLayout="column">
-    <div *ngFor="let product of products">
-      <h4>{{product.title}}</h4>
+    <div *ngFor="let product of products" fxLayout="row" fxLayoutAlign="space-between center">
+      {{product.title}}
+      <div fxLayout="row" fxLayoutAlign="center center">
+        {{product.price}}
+        <button mat-icon-button (click)="deleteFromStorage(product._id)">
+          <mat-icon aria-label="Звкрыть">close</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
-  <mat-divider></mat-divider>
+  <mat-divider style="margin-bottom: 10px"></mat-divider>
   <p>
     Пожалуйста, оставьте контактные данные, чтобы наш менеджер мог связаться с вами и уточнить детали заказа.
     Оплатить и забрать товар можно в нашем офисе на пер. Харьковский, 6.
@@ -20,22 +26,22 @@
     Понедельник: выходной
   </p>
 
-  <form fxLayout="column">
+  <div fxLayout="column">
 
     <mat-form-field>
-      <input matInput placeholder="Ваше имя">
+      <input [(ngModel)]="name" matInput placeholder="Ваше имя">
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <span matPrefix>+38 &nbsp;</span>
-      <input type="tel" matInput placeholder="Номер телефона">
+      <input [(ngModel)]="number" type="tel" matInput placeholder="Номер телефона">
       <mat-icon matSuffix>mode_edit</mat-icon>
     </mat-form-field>
 
-  </form>
+  </div>
 
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>Отмена</button>
-  <button mat-button [mat-dialog-close]="true" [disabled]="valid">Оформить заказ</button>
+  <button mat-button [mat-dialog-close]="true" (click)="submitOrder()">Оформить заказ</button>
 </mat-dialog-actions>

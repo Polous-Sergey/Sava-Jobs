@@ -1,13 +1,62 @@
-<form class="example-form">
+<div fxLayoutAlign="center none">
+    <div fxFlex="98%" class="admin-store">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-form-field class="filter">
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+        </div>
 
-  <mat-form-field>
-    <input matInput placeholder="Name">
-  </mat-form-field>
+        <div class="mat-elevation-z8">
 
-  <mat-form-field class="example-full-width">
-    <span matPrefix>+38 &nbsp;</span>
-    <input type="tel" matInput placeholder="Telephone">
-    <mat-icon matSuffix>mode_edit</mat-icon>
-  </mat-form-field>
+            <div class="loading-shade" *ngIf="isLoadingResults">
+                <mat-spinner></mat-spinner>
+            </div>
 
-</form>>
+            <mat-table class="mat-elevation-z8" [dataSource]="dataSource" matSort>
+
+                <ng-container matColumnDef="created">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Created</mat-header-cell>
+                    <mat-cell *matCellDef="let row">{{row.created | date:'dd/MM/yy'}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.name}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="number">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Number</mat-header-cell>
+                    <mat-cell *matCellDef="let row"> {{row.number}}</mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef class="text-center">Action</mat-header-cell>
+                    <mat-cell *matCellDef="let row">
+                        <div class="button-row text-center">
+                            <button mat-button
+                                    color="primary"
+                                    (click)="showOrderDetail(row)">
+                                Show detail
+                            </button>
+                            <button mat-button
+                                    color="warn"
+                                    (click)="deleteOrder(row._id)">
+                                Delete
+                            </button>
+                        </div>
+                    </mat-cell>
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSize]="10"
+                           [pageSizeOptions]="[10, 25, 50, 100]">
+            </mat-paginator>
+
+        </div>
+
+    </div>
+</div>

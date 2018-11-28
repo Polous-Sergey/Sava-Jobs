@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Детали заказа:</h2>
+<mat-dialog-content class="mat-typography">
+  <mat-divider style="margin-bottom: 10px"></mat-divider>
+  <div fxLayout="column">
+    <div *ngFor="let product of order.products" fxLayout="row" fxLayoutAlign="space-between center">
+      {{product.title}}
+      <div fxLayout="row" fxLayoutAlign="center center">
+        {{product.price}}
+      </div>
+    </div>
+  </div>
+  <mat-divider style="margin-bottom: 10px"></mat-divider>
+
+  <p>Name: {{order.name}} <br>
+
+    Number: {{order.number}}</p>
+
+</mat-dialog-content>
+
