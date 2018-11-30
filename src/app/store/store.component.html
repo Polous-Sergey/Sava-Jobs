@@ -1,16 +1,27 @@
+<button mat-fab
+        color="primary"
+        class="order_button"
+        [matBadge]="shopingList.length"
+        matBadgePosition="after"
+        matBadgeColor="accent"
+        *ngIf="shopingList.length"
+        (click)="showOrderPage()">
+    <mat-icon aria-label="shopping cart">shopping_cart</mat-icon>
+</button>
+
 <app-store-header></app-store-header>
 <!--<div class="text">-->
-    <!--<h2>Нужно добавить какой-то текст</h2>-->
-    <!--<p>А то стремно смотрится, можно с картинки сюда перетащить а туда чтото типа гарантия 3 месб лучшие айфоны и т. д.</p>-->
+<!--<h2>Нужно добавить какой-то текст</h2>-->
+<!--<p>А то стремно смотрится, можно с картинки сюда перетащить а туда чтото типа гарантия 3 месб лучшие айфоны и т. д.</p>-->
 <!--</div>-->
 
 <div class="content">
     <div fxLayoutAlign="center none">
         <!--<section class="cards">-->
-            <!--<app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"-->
-                      <!--(clickDetail)="showDetail($event)"></app-card>-->
+        <!--<app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"-->
+        <!--(clickDetail)="showDetail($event)"></app-card>-->
         <!--</section>-->
-      <section class="cards">
+        <section class="cards">
             <app-card class="card" *ngFor="let card of data index as i;" [cardData]="card"
                       (clickDetail)="showDetail($event)"
                       (clickBye)="showOrderPage($event)"></app-card>

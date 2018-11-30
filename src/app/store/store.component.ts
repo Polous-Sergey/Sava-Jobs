@@ -51,8 +51,9 @@ export class StoreComponent implements OnInit {
     });
   }
 
-  showOrderPage(data: Product) {
-    const index = this.shopingList.findIndex(item => item._id === data._id);
+  showOrderPage(data?: Product) {
+    let index;
+    if (data) index = this.shopingList.findIndex(item => item._id === data._id);
     if(index === -1) {
       this.shopingList.push(data);
       this.sessonStorageService.addToShopingList(data);
